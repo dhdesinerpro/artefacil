@@ -1,416 +1,108 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Arte Fácil Pro Delivery — Galeria</title>
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
-    body {
-      background: #111;
-      color: #eee;
-      font-family: sans-serif;
-      padding: 40px 20px;
-      min-height: 100vh;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 0 auto;
-    }
-
-    header {
-      text-align: center;
-      margin-bottom: 50px;
-      padding: 20px 0;
-      border-bottom: 2px solid #1a1a1a;
-    }
-
-    header h1 {
-      font-size: 32px;
-      color: #f5a623;
-      margin-bottom: 8px;
-      font-weight: 700;
-    }
-
-    header p {
-      font-size: 14px;
-      color: #666;
-      max-width: 600px;
-      margin: 0 auto;
-      line-height: 1.6;
-    }
-
-    .gallery {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-      gap: 24px;
-      margin-bottom: 60px;
-    }
-
-    .card {
-      background: #1a1a1a;
-      border: 1px solid #2a2a2a;
-      border-radius: 12px;
-      overflow: hidden;
-      transition: all 0.3s ease;
-      cursor: pointer;
-      display: flex;
-      flex-direction: column;
-      height: 100%;
-    }
-
-    .card:hover {
-      border-color: #f5a623;
-      transform: translateY(-8px);
-      box-shadow: 0 12px 24px rgba(245, 166, 35, 0.1);
-    }
-
-    .card-image {
-      width: 100%;
-      height: 220px;
-      background: #0a0a0a;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 48px;
-      overflow: hidden;
-    }
-
-    .card-image img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-
-    .card-content {
-      padding: 20px;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
-    }
-
-    .card-number {
-      font-size: 11px;
-      color: #f5a623;
-      text-transform: uppercase;
-      letter-spacing: 1px;
-      margin-bottom: 8px;
-      font-weight: 600;
-    }
-
-    .card-title {
-      font-size: 18px;
-      color: #fff;
-      margin-bottom: 8px;
-      font-weight: 600;
-      min-height: 54px;
-    }
-
-    .card-description {
-      font-size: 12px;
-      color: #888;
-      margin-bottom: 20px;
-      flex: 1;
-      line-height: 1.5;
-    }
-
-    .card-footer {
-      display: flex;
-      gap: 8px;
-    }
-
-    .btn-enter {
-      flex: 1;
-      background: #f5a623;
-      color: #111;
-      border: none;
-      border-radius: 8px;
-      padding: 12px;
-      font-size: 13px;
-      font-weight: 600;
-      cursor: pointer;
-      transition: all 0.2s;
-      text-decoration: none;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-    }
-
-    .btn-enter:hover {
-      background: #fff;
-      transform: scale(1.05);
-    }
-
-    .badge-new {
-      display: inline-block;
-      background: #f5a623;
-      color: #111;
-      font-size: 10px;
-      padding: 4px 8px;
-      border-radius: 4px;
-      font-weight: 700;
-      margin-left: 8px;
-    }
-
-    .section-divider {
-      text-align: center;
-      margin: 60px 0;
-      padding: 20px 0;
-      border-top: 1px solid #1a1a1a;
-      border-bottom: 1px solid #1a1a1a;
-    }
-
-    .section-divider h2 {
-      font-size: 14px;
-      color: #666;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-    }
-
-    footer {
-      text-align: center;
-      padding-top: 40px;
-      border-top: 1px solid #1a1a1a;
-      color: #555;
-      font-size: 12px;
-    }
-
-    footer a {
-      color: #f5a623;
-      text-decoration: none;
-      font-weight: 600;
-    }
-
-    footer a:hover {
-      text-decoration: underline;
-    }
-
-    .error-message {
-      background: #2a1a1a;
-      border: 1px solid #f5a623;
-      border-radius: 8px;
-      padding: 16px;
-      margin-bottom: 20px;
-      color: #f5a623;
-      font-size: 13px;
-      display: none;
-    }
-
-    .error-message.show {
-      display: block;
-    }
-
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 24px;
-      }
-
-      .gallery {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arte Fácil Pro Delivery — Catálogo</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:#111;color:#eee;font-family:sans-serif;min-height:100vh}
+  .header{padding:24px 20px 16px;text-align:center;border-bottom:1px solid #1a1a1a}
+  .badge{display:inline-block;background:#1a1a1a;color:#aaa;font-size:11px;padding:4px 14px;border-radius:20px;margin-bottom:10px;letter-spacing:1px}
+  .header h1{font-size:22px;color:#fff;margin-bottom:4px}
+  .header p{font-size:13px;color:#555}
+  .filtros{display:flex;gap:8px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid #1a1a1a;justify-content:center}
+  .filtro{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:20px;padding:6px 16px;font-size:12px;color:#aaa;cursor:pointer;transition:all .2s}
+  .filtro:hover,.filtro.ativo{background:#f5a623;color:#111;border-color:#f5a623;font-weight:600}
+  .contador{text-align:center;font-size:12px;color:#444;padding:12px 20px}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;padding:16px 20px 32px}
+  .card{background:#1a1a1a;border:1px solid #222;border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s}
+  .card:hover{transform:translateY(-2px);border-color:#f5a623}
+  .card.hidden{display:none}
+  .card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+  .card .info{padding:10px}
+  .card .num{font-size:11px;color:#555;margin-bottom:2px}
+  .card .cat{font-size:12px;font-weight:600;color:#eee;margin-bottom:8px}
+  .card a{display:block;background:#f5a623;color:#111;text-align:center;padding:8px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none}
+  .vazio{text-align:center;padding:60px 20px;color:#333;font-size:14px;display:none}
+  .footer{text-align:center;color:#333;font-size:11px;padding:20px;border-top:1px solid #1a1a1a;line-height:1.8}
+  .footer a{color:#f5a623;text-decoration:none}
+</style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>🎨 Arte Fácil Pro Delivery</h1>
-      <p>Selecione uma das artes disponíveis e preencha os dados do seu negócio para gerar prompts personalizados.</p>
-    </header>
-
-    <div id="errorBox" class="error-message"></div>
-
-    <div class="gallery">
-      <!-- Arte 098 -->
-      <div class="card" id="card-098">
-        <div class="card-image">
-          <span>🍔</span>
-        </div>
-        <div class="card-content">
-          <div>
-            <div class="card-number">Arte #098</div>
-            <h3 class="card-title">Hamburgueria<br><small style="font-size: 14px; color: #888;">Fogo Intens</small></h3>
-            <p class="card-description">Estilo agressivo com fogo realista e iluminação cinematográfica. Ideal para hamburgueria casual.</p>
-          </div>
-          <div class="card-footer">
-            <a href="arte098/" class="btn-enter">Acessar →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Arte 099 -->
-      <div class="card" id="card-099">
-        <div class="card-image">
-          <span>🍔</span>
-        </div>
-        <div class="card-content">
-          <div>
-            <div class="card-number">Arte #099</div>
-            <h3 class="card-title">Hamburgueria Premium<br><small style="font-size: 14px; color: #888;">Dark/Sofisticado</small></h3>
-            <p class="card-description">Design premium com fundo escuro e degradê. Perfeito para hamburgueria delivery premium.</p>
-          </div>
-          <div class="card-footer">
-            <a href="arte099/" class="btn-enter">Acessar →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Arte 100 -->
-      <div class="card" id="card-100">
-        <div class="card-image">
-          <span>🎨</span>
-        </div>
-        <div class="card-content">
-          <div>
-            <div class="card-number">Arte #100</div>
-            <h3 class="card-title">Arte 100</h3>
-            <p class="card-description">Template customizável para campanhas publicitárias. Próxima página em desenvolvimento.</p>
-          </div>
-          <div class="card-footer">
-            <a href="arte100/" class="btn-enter">Acessar →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Arte 101 -->
-      <div class="card" id="card-101">
-        <div class="card-image">
-          <span>🎨</span>
-        </div>
-        <div class="card-content">
-          <div>
-            <div class="card-number">Arte #101</div>
-            <h3 class="card-title">Arte 101</h3>
-            <p class="card-description">Template customizável para campanhas publicitárias. Próxima página em desenvolvimento.</p>
-          </div>
-          <div class="card-footer">
-            <a href="arte101/" class="btn-enter">Acessar →</a>
-          </div>
-        </div>
-      </div>
-
-      <!-- Arte 102 - NOVA! -->
-      <div class="card" id="card-102">
-        <div class="card-image">
-          <span>✨</span>
-        </div>
-        <div class="card-content">
-          <div>
-            <div class="card-number">
-              Arte #102
-              <span class="badge-new">NOVA</span>
-            </div>
-            <h3 class="card-title">Arte 102</h3>
-            <p class="card-description">Última página integrada! Template inovador para suas campanhas. Em desenvolvimento.</p>
-          </div>
-          <div class="card-footer">
-            <a href="arte102/" class="btn-enter">Acessar →</a>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="section-divider">
-      <h2>📝 Como Usar</h2>
-    </div>
-
-    <div style="max-width: 800px; margin: 0 auto 60px;">
-      <div style="background: #1a1a1a; border: 1px solid #2a2a2a; border-radius: 12px; padding: 24px;">
-        <div style="margin-bottom: 20px;">
-          <h3 style="color: #f5a623; margin-bottom: 8px;">1️⃣ Escolha uma arte</h3>
-          <p style="color: #888; font-size: 13px;">Clique em "Acessar" na galeria acima.</p>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <h3 style="color: #f5a623; margin-bottom: 8px;">2️⃣ Preencha os dados</h3>
-          <p style="color: #888; font-size: 13px;">Insira as informações do seu negócio (marca, preço, WhatsApp, etc).</p>
-        </div>
-        <div style="margin-bottom: 20px;">
-          <h3 style="color: #f5a623; margin-bottom: 8px;">3️⃣ Gere o prompt</h3>
-          <p style="color: #888; font-size: 13px;">Clique em "GERAR PROMPT" e copie o texto gerado.</p>
-        </div>
-        <div>
-          <h3 style="color: #f5a623; margin-bottom: 8px;">4️⃣ Use em IA</h3>
-          <p style="color: #888; font-size: 13px;">Cole o prompt no ChatGPT, Gemini ou outro gerador de imagens junto com a referência.</p>
-        </div>
-      </div>
-    </div>
-
-    <footer>
-      <p>🎨 <strong>Arte Fácil Pro Delivery</strong></p>
-      <p>Crie artes publicitárias profissionais em minutos</p>
-      <p style="margin-top: 12px;">
-        Para mais conteúdo, acesse
-        <a href="https://instagram.com/dhdesignerpro" target="_blank">@dhdesignerpro</a>
-      </p>
-    </footer>
+<div class="header">
+  <div class="badge">⭐ ARTE FÁCIL PRO DELIVERY</div>
+  <h1>Catálogo de Artes</h1>
+  <p>Escolha um modelo e gere com seus dados em segundos.</p>
+</div>
+<div class="filtros">
+  <div class="filtro ativo" onclick="filtrar('todos',this)">Todos</div>
+  <div class="filtro" onclick="filtrar('Hamburgueria',this)">🍔 Hamburgueria</div>
+  <div class="filtro" onclick="filtrar('Pastelaria',this)">🥟 Pastelaria</div>
+  <div class="filtro" onclick="filtrar('Açaí',this)">🍧 Açaí</div>
+  <div class="filtro" onclick="filtrar('Marmitaria',this)">🍱 Marmitaria</div>
+  <div class="filtro" onclick="filtrar('Pizzaria',this)">🍕 Pizzaria</div>
+</div>
+<div class="contador" id="contador">5 artes disponíveis</div>
+<div class="grid" id="grid">
+  <div class="card" data-cat="Hamburgueria">
+    <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAA" alt="Arte #098">
+    <div class="info"><div class="num">Arte #098</div><div class="cat">🍔 Hamburgueria</div><a href="arte098/">⚡ Gerar com meus dados</a></div>
   </div>
+  <div class="card" data-cat="Hamburgueria">
+    <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1JST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAA" alt="Arte #099">
+    <div class="info"><div class="num">Arte #099</div><div class="cat">🍔 Hamburgueria</div><a href="arte099/">⚡ Gerar com meus dados</a></div>
+  </div>
+  <div class="card" data-cat="Hamburgueria">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQA" alt="Arte #100">
+    <div class="info"><div class="num">Arte #100</div><div class="cat">🍔 Hamburgueria</div><a href="arte100/">⚡ Gerar com meus dados</a></div>
+  </div>
+  <div class="card" data-cat="Hamburgueria">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQA" alt="Arte #101">
+    <div class="info"><div class="num">Arte #101</div><div class="cat">🍔 Hamburgueria</div><a href="arte101/">⚡ Gerar com meus dados</a></div>
+  </div>
+  <div class="card" data-cat="Hamburgueria">
+    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1JST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQA" alt="Arte #102 - NOVA">
+    <div class="info"><div class="num">Arte #102 ✨</div><div class="cat">🍔 Hamburgueria</div><a href="arte102/">⚡ Gerar com meus dados</a></div>
+  </div>
+</div>
 
-  <script>
-    // Validação e verificação de links
-    function verificarLinks() {
-      const artes = [
-        { id: '098', url: 'arte098/' },
-        { id: '099', url: 'arte099/' },
-        { id: '100', url: 'arte100/' },
-        { id: '101', url: 'arte101/' },
-        { id: '102', url: 'arte102/' }
-      ];
+<div class="vazio" id="vazio">Nenhuma arte encontrada nesta categoria.</div>
 
-      const erros = [];
+<div style="text-align:center;padding:20px;color:#555;font-size:12px;">
+  <p>🎨 Arte Fácil Pro Delivery</p>
+  <p style="margin-top:8px;">Para mais artes acesse <a href="https://instagram.com/dhdesignerpro" target="_blank" style="color:#f5a623;text-decoration:none">@dhdesignerpro</a></p>
+</div>
 
-      artes.forEach(arte => {
-        const card = document.getElementById(`card-${arte.id}`);
-        if (!card) {
-          erros.push(`Erro: Card da Arte #${arte.id} não encontrado no HTML`);
-        }
-
-        const link = card?.querySelector('.btn-enter');
-        if (!link) {
-          erros.push(`Erro: Link da Arte #${arte.id} não encontrado`);
-        }
-
-        if (link && !link.href.includes(arte.url)) {
-          erros.push(`Erro: Link da Arte #${arte.id} aponta para ${link.href}`);
-        }
-      });
-
-      // Mostrar erros se houver
-      if (erros.length > 0) {
-        const errorBox = document.getElementById('errorBox');
-        errorBox.innerHTML = `
-          <strong>⚠️ Erros Detectados:</strong><br>
-          ${erros.map(e => `• ${e}`).join('<br>')}
-        `;
-        errorBox.classList.add('show');
-        console.error('ERROS ENCONTRADOS:', erros);
-      } else {
-        console.log('✅ Todos os links estão corretos!');
-        document.getElementById('errorBox').classList.remove('show');
-      }
+<script>
+function filtrar(categoria, elem) {
+  document.querySelectorAll('.filtro').forEach(f => f.classList.remove('ativo'));
+  elem.classList.add('ativo');
+  
+  const cards = document.querySelectorAll('.card');
+  let vistos = 0;
+  
+  cards.forEach(card => {
+    if (categoria === 'todos' || card.dataset.cat === categoria) {
+      card.classList.remove('hidden');
+      vistos++;
+    } else {
+      card.classList.add('hidden');
     }
-
-    // Executar verificação ao carregar
-    document.addEventListener('DOMContentLoaded', function() {
-      verificarLinks();
-
-      // Adicionar efeito de clique nos cards
-      const cards = document.querySelectorAll('.card');
-      cards.forEach(card => {
-        card.addEventListener('click', function(e) {
-          if (!e.target.closest('a')) {
-            const link = this.querySelector('.btn-enter');
-            if (link) window.location.href = link.href;
-          }
-        });
-      });
-    });
-  </script>
+  });
+  
+  const contador = document.getElementById('contador');
+  const vazio = document.getElementById('vazio');
+  
+  if (vistos === 0) {
+    vazio.style.display = 'block';
+    contador.style.display = 'none';
+  } else {
+    vazio.style.display = 'none';
+    contador.style.display = 'block';
+    contador.textContent = vistos + ' arte(s) disponível(is)';
+  }
+}
+</script>
 </body>
 </html>
