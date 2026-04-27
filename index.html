@@ -1,108 +1,83 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arte Fácil Pro Delivery — Catálogo</title>
+<title>Arte Fácil</title>
+
 <style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#111;color:#eee;font-family:sans-serif;min-height:100vh}
-  .header{padding:24px 20px 16px;text-align:center;border-bottom:1px solid #1a1a1a}
-  .badge{display:inline-block;background:#1a1a1a;color:#aaa;font-size:11px;padding:4px 14px;border-radius:20px;margin-bottom:10px;letter-spacing:1px}
-  .header h1{font-size:22px;color:#fff;margin-bottom:4px}
-  .header p{font-size:13px;color:#555}
-  .filtros{display:flex;gap:8px;flex-wrap:wrap;padding:16px 20px;border-bottom:1px solid #1a1a1a;justify-content:center}
-  .filtro{background:#1a1a1a;border:1px solid #2a2a2a;border-radius:20px;padding:6px 16px;font-size:12px;color:#aaa;cursor:pointer;transition:all .2s}
-  .filtro:hover,.filtro.ativo{background:#f5a623;color:#111;border-color:#f5a623;font-weight:600}
-  .contador{text-align:center;font-size:12px;color:#444;padding:12px 20px}
-  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(160px,1fr));gap:12px;padding:16px 20px 32px}
-  .card{background:#1a1a1a;border:1px solid #222;border-radius:12px;overflow:hidden;transition:transform .2s,border-color .2s}
-  .card:hover{transform:translateY(-2px);border-color:#f5a623}
-  .card.hidden{display:none}
-  .card img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
-  .card .info{padding:10px}
-  .card .num{font-size:11px;color:#555;margin-bottom:2px}
-  .card .cat{font-size:12px;font-weight:600;color:#eee;margin-bottom:8px}
-  .card a{display:block;background:#f5a623;color:#111;text-align:center;padding:8px;border-radius:8px;font-size:12px;font-weight:700;text-decoration:none}
-  .vazio{text-align:center;padding:60px 20px;color:#333;font-size:14px;display:none}
-  .footer{text-align:center;color:#333;font-size:11px;padding:20px;border-top:1px solid #1a1a1a;line-height:1.8}
-  .footer a{color:#f5a623;text-decoration:none}
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #0f0f0f;
+    color: #fff;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+h1 {
+    text-align: center;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.card {
+    background: #1a1a1a;
+    border-radius: 10px;
+    overflow: hidden;
+    text-decoration: none;
+    transition: 0.2s;
+}
+
+.card:hover {
+    transform: scale(1.03);
+}
+
+.card img {
+    width: 100%;
+    display: block;
+}
 </style>
+
 </head>
 <body>
-<div class="header">
-  <div class="badge">⭐ ARTE FÁCIL PRO DELIVERY</div>
-  <h1>Catálogo de Artes</h1>
-  <p>Escolha um modelo e gere com seus dados em segundos.</p>
-</div>
-<div class="filtros">
-  <div class="filtro ativo" onclick="filtrar('todos',this)">Todos</div>
-  <div class="filtro" onclick="filtrar('Hamburgueria',this)">🍔 Hamburgueria</div>
-  <div class="filtro" onclick="filtrar('Pastelaria',this)">🥟 Pastelaria</div>
-  <div class="filtro" onclick="filtrar('Açaí',this)">🍧 Açaí</div>
-  <div class="filtro" onclick="filtrar('Marmitaria',this)">🍱 Marmitaria</div>
-  <div class="filtro" onclick="filtrar('Pizzaria',this)">🍕 Pizzaria</div>
-</div>
-<div class="contador" id="contador">5 artes disponíveis</div>
-<div class="grid" id="grid">
-  <div class="card" data-cat="Hamburgueria">
-    <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAA" alt="Arte #098">
-    <div class="info"><div class="num">Arte #098</div><div class="cat">🍔 Hamburgueria</div><a href="arte098/">⚡ Gerar com meus dados</a></div>
-  </div>
-  <div class="card" data-cat="Hamburgueria">
-    <img src="data:image/png;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1JST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQAA" alt="Arte #099">
-    <div class="info"><div class="num">Arte #099</div><div class="cat">🍔 Hamburgueria</div><a href="arte099/">⚡ Gerar com meus dados</a></div>
-  </div>
-  <div class="card" data-cat="Hamburgueria">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQA" alt="Arte #100">
-    <div class="info"><div class="num">Arte #100</div><div class="cat">🍔 Hamburgueria</div><a href="arte100/">⚡ Gerar com meus dados</a></div>
-  </div>
-  <div class="card" data-cat="Hamburgueria">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1BST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQA" alt="Arte #101">
-    <div class="info"><div class="num">Arte #101</div><div class="cat">🍔 Hamburgueria</div><a href="arte101/">⚡ Gerar com meus dados</a></div>
-  </div>
-  <div class="card" data-cat="Hamburgueria">
-    <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4gHYSUNDX1JST0ZJTEUAAQEAAAHIAAAAAAQwAABtbnRyUkdCIFhZWiAH4AABAAEAAAAAAABhY3NwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAA9tYAAQAAAADTLQA" alt="Arte #102 - NOVA">
-    <div class="info"><div class="num">Arte #102 ✨</div><div class="cat">🍔 Hamburgueria</div><a href="arte102/">⚡ Gerar com meus dados</a></div>
-  </div>
+
+<div class="container">
+    <h1>Biblioteca de Artes</h1>
+
+    <div class="grid">
+
+        <a class="card" href="arte098/">
+            <img src="arte098/preview.jpg">
+        </a>
+
+        <a class="card" href="arte099/">
+            <img src="arte099/preview.jpg">
+        </a>
+
+        <a class="card" href="arte100/">
+            <img src="arte100/preview.jpg">
+        </a>
+
+        <a class="card" href="arte101/">
+            <img src="arte101/preview.jpg">
+        </a>
+
+        <a class="card" href="arte102/">
+            <img src="arte102/preview.jpg">
+        </a>
+
+    </div>
 </div>
 
-<div class="vazio" id="vazio">Nenhuma arte encontrada nesta categoria.</div>
-
-<div style="text-align:center;padding:20px;color:#555;font-size:12px;">
-  <p>🎨 Arte Fácil Pro Delivery</p>
-  <p style="margin-top:8px;">Para mais artes acesse <a href="https://instagram.com/dhdesignerpro" target="_blank" style="color:#f5a623;text-decoration:none">@dhdesignerpro</a></p>
-</div>
-
-<script>
-function filtrar(categoria, elem) {
-  document.querySelectorAll('.filtro').forEach(f => f.classList.remove('ativo'));
-  elem.classList.add('ativo');
-  
-  const cards = document.querySelectorAll('.card');
-  let vistos = 0;
-  
-  cards.forEach(card => {
-    if (categoria === 'todos' || card.dataset.cat === categoria) {
-      card.classList.remove('hidden');
-      vistos++;
-    } else {
-      card.classList.add('hidden');
-    }
-  });
-  
-  const contador = document.getElementById('contador');
-  const vazio = document.getElementById('vazio');
-  
-  if (vistos === 0) {
-    vazio.style.display = 'block';
-    contador.style.display = 'none';
-  } else {
-    vazio.style.display = 'none';
-    contador.style.display = 'block';
-    contador.textContent = vistos + ' arte(s) disponível(is)';
-  }
-}
-</script>
 </body>
 </html>
