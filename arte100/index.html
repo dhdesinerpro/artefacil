@@ -1,19 +1,2 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arte #100 – Hamburgueria Gourmet</title>
-<link rel="stylesheet" href="../style-art.css">
-</head>
-<body>
-<div class="content">
-<h1>Arte #100 – Hamburgueria Gourmet</h1>
-<p class="sub">Pagina atualizada.</p>
-<img class="arte" src="preview.jpg" alt="Arte 100">
-<div class="footer">🎨 Arte Fácil Pro Delivery<br>
-<a href="https://instagram.com/artefacilpro" target="_blank">@artefacilpro</a>
-</div>
-</div>
-</body>
-</html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Arte 100</title><link rel="stylesheet" href="../style-art.css"></head><body><div class="topbar"><a class="btn-back" href="../">← Voltar</a><div class="badge">ARTE F0ACIL PRO</div></div><div class="content"><h1>Arte #100</h1><p class="sub">Personalize sua arte.</p><img class="arte" src="preview.jpg"><label>Nome</label><input id="nome"><label>Titulo</label><input id="titulo"><label>WhatsApp</label><input id="whats"><button class="btn-gerar" onclick="gerar()">GERAR PROMPT</button><div id="result" class="result-box"><textarea id="out" class="prompt-area"></textarea><button class="btn-copiar" onclick="copiar()">COPIAR</button></div><div class="footer">🎨 Arte Fácil Pro Delivery<br><a href="https://instagram.com/artefacilpro" target="_blank">@artefacilpro</a></div></div><script>function gerar(){document.getElementById('result').style.display='block';document.getElementById('out').value='Crie arte gourmet com os dados: '+document.getElementById('nome').value+' - '+document.getElementById('titulo').value;}function copiar(){document.getElementById('out').select();document.execCommand('copy');}</script></body></html>
