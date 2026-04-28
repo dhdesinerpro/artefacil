@@ -1,0 +1,211 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
+
+/*
+ * Global stylesheet for Arte Fácil Pro Delivery
+ *
+ * This stylesheet defines a modern, mobile‑first dark theme inspired by
+ * app‑like interfaces. It uses CSS variables for colours to make it easy
+ * to tweak the palette in one place. The palette is based on best
+ * practices for dark mode: dark greys instead of pure black for
+ * backgrounds, subtle surface layers, and an accent colour that stands
+ * out without being oversaturated. A design article from Hype4 notes that
+ * saturated colours become harsh against dark backgrounds and recommends
+ * reducing saturation by 20–30% and infusing greys with a hint of the
+ * accent hue to create a coherent palette【227474210211597†L90-L110】.  The
+ * chosen palette applies these principles by using a deep grey base,
+ * slightly lighter surfaces, and a warm gold accent derived from the
+ * original brand colour with reduced saturation.
+ */
+
+:root {
+  /* base colours */
+  --bg: #121212;               /* main background – dark grey instead of pure black【25722564081109†L355-L376】 */
+  --bg-secondary: #1e1e1e;     /* secondary surfaces (cards, inputs) */
+  --border: #2a2a2a;           /* subtle borders separating surfaces */
+  --text-primary: #e0e0e0;     /* main text colour – high contrast for readability【25722564081109†L355-L379】 */
+  --text-secondary: #999999;   /* secondary text – subdued for less important content */
+  /* accent colour derived from brand yellow, slightly desaturated
+     to improve readability on dark backgrounds【227474210211597†L90-L100】 */
+  --accent: #f5b63e;           /* warm gold accent */
+  --accent-hover: #f5c46e;     /* lighter accent for hover states */
+}
+
+/* Reset and global styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-primary);
+  font-family: 'Inter', sans-serif;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header section for index */
+.header {
+  padding: 24px 16px;
+  text-align: center;
+  border-bottom: 1px solid var(--bg-secondary);
+}
+
+.badge {
+  display: inline-block;
+  background: var(--bg-secondary);
+  color: var(--text-secondary);
+  font-size: 0.75rem;
+  padding: 4px 12px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.header h1 {
+  font-size: 1.6rem;
+  margin-bottom: 4px;
+}
+
+.header p {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+/* Filter chips */
+.filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  padding: 16px;
+  justify-content: center;
+  border-bottom: 1px solid var(--bg-secondary);
+}
+
+.filter {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.filter:hover,
+.filter.active {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  font-weight: 600;
+}
+
+/* Counter */
+.counter {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  padding: 12px;
+}
+
+/* Grid of cards */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 16px;
+  padding: 16px;
+  flex: 1;
+}
+
+.card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  border-color: var(--accent);
+}
+
+.card.hidden {
+  display: none;
+}
+
+.card img {
+  width: 100%;
+  height: 0;
+  padding-bottom: 125%;
+  object-fit: cover;
+  display: block;
+}
+
+.card .info {
+  padding: 12px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.card .num {
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+}
+
+.card .cat {
+  font-size: 0.85rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+  color: var(--text-primary);
+}
+
+.card a {
+  margin-top: auto;
+  display: block;
+  background: var(--accent);
+  color: var(--bg);
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.card a:hover {
+  background: var(--accent-hover);
+}
+
+/* Empty message */
+.empty {
+  text-align: center;
+  padding: 60px;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  display: none;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  color: var(--text-secondary);
+  font-size: 0.7rem;
+  padding: 20px;
+  border-top: 1px solid var(--bg-secondary);
+  line-height: 1.6;
+}
+
+.footer a {
+  color: var(--accent);
+  text-decoration: none;
+}

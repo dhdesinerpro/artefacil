@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arte Fácil Pro Delivery — Catálogo</title>
+  <!-- Load the global catalogue styles -->
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Header with logo and tagline -->
+  <div class="header">
+    <div class="badge">⭐ Arte Fácil Pro Delivery</div>
+    <h1>Catálogo de Artes</h1>
+    <p>Escolha um modelo e personalize com os dados do seu negócio.</p>
+  </div>
+
+  <!-- Category filters -->
+  <div class="filters">
+    <div class="filter active" onclick="filtrar('Todos', this)">Todos</div>
+    <div class="filter" onclick="filtrar('Hamburgueria', this)">🍔 Hamburgueria</div>
+    <div class="filter" onclick="filtrar('Pastelaria', this)">🥟 Pastelaria</div>
+    <div class="filter" onclick="filtrar('Açaí', this)">🍧 Açaí</div>
+    <div class="filter" onclick="filtrar('Marmitaria', this)">🍱 Marmitaria</div>
+    <div class="filter" onclick="filtrar('Pizzaria', this)">🍕 Pizzaria</div>
+  </div>
+
+  <!-- Counter showing how many items are visible -->
+  <div class="counter" id="counter">4 artes disponíveis</div>
+
+  <!-- Grid of art cards -->
+  <div class="grid" id="grid">
+    <div class="card" data-cat="Hamburgueria">
+      <img src="arte098/preview.jpg" alt="Arte 98">
+      <div class="info">
+        <div class="num">Arte #098</div>
+        <div class="cat">🍔 Hamburgueria</div>
+        <a href="arte098/">⚡ Gerar com meus dados</a>
+      </div>
+    </div>
+    <div class="card" data-cat="Hamburgueria">
+      <img src="arte099/preview.jpg" alt="Arte 099">
+      <div class="info">
+        <div class="num">Arte #099</div>
+        <div class="cat">🍔 Hamburgueria</div>
+        <a href="arte099/">⚡ Gerar com meus dados</a>
+      </div>
+    </div>
+    <div class="card" data-cat="Hamburgueria">
+      <img src="arte100/preview.jpg" alt="Arte 100">
+      <div class="info">
+        <div class="num">Arte #100</div>
+        <div class="cat">🍔 Hamburgueria</div>
+        <a href="arte100/">⚡ Gerar com meus dados</a>
+      </div>
+    </div>
+    <div class="card" data-cat="Pastelaria">
+      <img src="arte101/preview.jpg" alt="Arte 101">
+      <div class="info">
+        <div class="num">Arte #101</div>
+        <div class="cat">🥟 Pastelaria</div>
+        <a href="arte101/">⚡ Gerar com meus dados</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Message shown when no items match a filter -->
+  <div class="empty" id="empty">Nenhuma arte nessa categoria ainda.</div>
+
+  <!-- Footer with call‑to‑action to Instagram -->
+  <div class="footer">
+    🎨 Arte Fácil Pro Delivery<br>
+    Para adquirir acesso ao catálogo completo, acesse<br>
+    <a href="https://instagram.com/dhdesignerpro" target="_blank">@dhdesignerpro</a> no Instagram.
+  </div>
+
+  <!-- Filtering script -->
+  <script>
+    function filtrar(cat, el) {
+      // Toggle the active state on the selected filter chip
+      document.querySelectorAll('.filter').forEach(function(f) {
+        f.classList.remove('active');
+      });
+      el.classList.add('active');
+      // Show or hide cards based on selected category
+      var cards = document.querySelectorAll('.card');
+      var count = 0;
+      cards.forEach(function(c) {
+        if (cat === 'Todos' || c.dataset.cat === cat) {
+          c.classList.remove('hidden');
+          count++;
+        } else {
+          c.classList.add('hidden');
+        }
+      });
+      // Update counter and empty state
+      var counter = document.getElementById('counter');
+      counter.textContent = count + ' arte' + (count !== 1 ? 's' : '') + ' disponível' + (count !== 1 ? 'is' : '');
+      var empty = document.getElementById('empty');
+      empty.style.display = count === 0 ? 'block' : 'none';
+    }
+  </script>
+</body>
+</html>
