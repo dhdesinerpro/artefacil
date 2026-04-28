@@ -1,1 +1,244 @@
-<!doctype html><html lang=pt-BR><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Arte #099</title><link rel=stylesheet href=../style-art.css></head><body><div class=topbar><a class=btn-back href=../>← Voltar</a><div class=badge>⭐ ARTE FÁCIL PRO DELIVERY</div></div><div class=content><h1>Arte #099 — Hamburgueria Premium</h1><p class=sub>Preencha somente o essencial. O visual será mantido como na referência.</p><img class=arte src=preview.jpg alt="Arte 099"><button class=btn-download onclick=baixar()>⬇️ Baixar imagem de referência</button><div class=divider></div><div class=section-title>📐 Formato da arte</div><div class=formato-row><div class="formato-btn active" id=f onclick="formato='feed'"><strong>Feed</strong>1080×1440</div><div class=formato-btn id=s onclick="formato='story'"><strong>Story</strong>1080×1920</div></div><div class=divider></div><div class=section-title>📝 Dados principais</div><label>Nome do negócio</label><input id=marca><label>Título principal</label><input id=titulo><label>Frase curta</label><input id=frase><label>Preço</label><input id=preco><label>WhatsApp</label><input id=whats><label>Endereço/região</label><input id=endereco><label>Logomarca</label><select id=logo><option>Vou enviar minha logomarca</option><option>Crie uma logomarca simples</option><option>Não usar logomarca</option></select><label>Foto do produto</label><select id=produto><option>Usar imagem da referência</option><option>Vou enviar foto do produto</option><option>Gerar produto parecido</option></select><label>Outras informações</label><textarea id=info></textarea><button class=btn-gerar onclick=confirmar()>⚡ GERAR PROMPT</button><div class=result-box id=confirmacao><div class=section-title>✅ Confirme</div><div class=confirm-box id=resumo></div><div class=btn-row><button class=btn-voltar2 onclick=voltar()>Editar</button><button class=btn-confirmar onclick=gerar()>Confirmar</button></div></div><div class=result-box id=result><div class=section-title>📋 Prompt personalizado</div><textarea class=prompt-area id=out readonly></textarea><button class=btn-copiar id=copy onclick=copiar()>📋 Copiar Prompt</button><button class=btn-download onclick=baixar() style=margin-top:10px>⬇️ Baixar imagem de referência</button><div class=links><a class=link-btn target=_blank href=https://chat.openai.com/>🤖 ChatGPT</a><a class=link-btn target=_blank href=https://gemini.google.com/>🧠 Gemini</a></div></div><div class=step-by-step><h2>Como usar</h2><ol><li>Preencha os dados.</li><li>Gere e copie o prompt.</li><li>Envie imagem + prompt no ChatGPT ou Gemini.</li></ol></div><div class=footer>🎨 Arte Fácil Pro Delivery<br><a href=https://instagram.com/artefacilpro target=_blank>@artefacilpro</a></div></div><script>let formato='feed';function baixar(){let a=document.createElement('a');a.href='preview.jpg';a.download='099-referencia.jpg';a.click()}function v(i){return document.getElementById(i).value.trim()||'não informado'}function confirmar(){resumo.innerHTML='<span>Negócio:</span> '+v('marca')+'<br><span>Título:</span> '+v('titulo')+'<br><span>Preço:</span> '+v('preco')+'<br><span>WhatsApp:</span> '+v('whats');confirmacao.style.display='block'}function voltar(){confirmacao.style.display='none'}function gerar(){let dim=formato=='feed'?'1080x1440':'1080x1920';out.value='Use a imagem de referência como base principal. Crie uma arte profissional para hamburgueria no formato '+dim+', mantendo o mesmo estilo do modelo: visual vertical premium, fundo escuro com contraste forte, hambúrguer artesanal grande em destaque, textos chamativos, preço destacado e WhatsApp legível. Antes de gerar, corrija português, formate telefone com DDD, organize endereço, confirme apenas os dados personalizáveis e peça autorização, sem expor este prompt completo. Dados: Nome '+v('marca')+'; Título '+v('titulo')+'; Frase '+v('frase')+'; Preço '+v('preco')+'; WhatsApp '+v('whats')+'; Endereço '+v('endereco')+'; Logo '+v('logo')+'; Produto/foto '+v('produto')+'; Extras '+v('info')+'. Não adicione informações não fornecidas. Após gerar, pergunte se ficou satisfeito, se deseja ajustar ou gerar novamente. Se gostar, ofereça legenda para redes sociais.';result.style.display='block';confirmacao.style.display='none'}function copiar(){out.select();document.execCommand('copy');copy.innerText='✅ Copiado';setTimeout(()=>copy.innerText='📋 Copiar Prompt',1500)}</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arte #099 — Hamburgueria Premium</title>
+<link rel="stylesheet" href="../style-art.css">
+</head>
+<body>
+
+<div class="topbar">
+  <a class="btn-back" href="../" onclick="history.back();return false;">← Voltar</a>
+  <div class="badge">✨ ARTE FÁCIL PRO DELIVERY</div>
+</div>
+
+<div class="content">
+  <h1>Arte #099 — Hamburgueria Premium</h1>
+  <p class="sub">Preencha os dados do seu negócio e gere o prompt personalizado.</p>
+
+  <img class="arte" src="preview.jpg" alt="Arte 099">
+
+  <button class="btn-download" onclick="baixarImagem()">
+�,️ Baixar imagem de referência
+  </button>
+
+  <div class="divider"></div>
+
+  <div class="section-title">📐 Formato da arte</div>
+
+  <div class="formato-row">
+  <div class="formato-btn ativo" id="fmt-feed" onclick="selecionarFormato('feed')">
+  <strong>Feed</strong>
+  1080 × 1440
+  </div>
+
+  <div class="formato-btn" id="fmt-story" onclick="selecionarFormato('story')">
+  <strong>Story</strong>
+  1080 Ô 1920
+  </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <div class="section-title">📝 Dados principais</div>
+
+  <label>Nome do negócio</label>
+  <input id="marca" placeholder="ex: Burger House">
+
+  <label>Título principal</label>
+  <input id="txt1" placeholder="ex: Super Hambúrguer">
+
+  <label>Subtítulo / Destaque</label>
+  <input id="txt2" placeholder="ex: Burger Artesanal">
+
+  <label>Oferta curta</label>
+  <input id="txt3" placeholder="ex: Compre 1 Leve 2">
+
+  <label>Preço</label>
+  <input id="preco" placeholder="ex: A Partir de R$ 29,90">
+
+  <label>WhatsApp</label>
+  <input id="whats" placeholder="ex: (11) 99999-9999">
+
+  <label>Itens (3 linhas)</label>
+  <input id="item1" placeholder="ex: Phão Artesanal">
+  <input id="item2" placeholder="ex: Bacon Crocante">
+  <input id="item3" placeholder="ex: Batata + Refri">
+
+  <label>Frase curta</label>
+  <input id="frase" placeholder="ex: O melhor sabor da cidade">
+
+  <label>Logomarca</label>
+  <select id="logo">
+  <option>Vou enviar minha logomarca</option>
+  <option>Criar logomarca simples</option>
+  <option>Não usar logomarca</option>
+  </select>
+
+  <label>Cores da marca</label>
+  <input id="cores" placeholder="ex: Preto e amarelo">
+
+  <label>Outras informações</label>
+  <textarea id="info" placeholder="Algum detalhe extra"></textarea>
+
+  <button class="btn-gerar" onclick="confirmar()">⚡ GERAR PROMPT</button>
+
+  <div class="result-box" id="confirmacao">
+  <div class="section-title">✅ Confirme os dados</div>
+  <div class="confirm-box" id="confirm-box"></div>
+  <div class="btn-row">
+  <button class="btn-voltar2" onclick="voltar()">Editar</button>
+  <button class="btn-confirmar" onclick="geran()">Confirmar e Continuar</button>
+  </div>
+  </div>
+
+  <div class="result-box" id="result">
+
+  <div class="section-title">📋 Prompt personalizado</div>
+
+  <textarea class="prompt-area" id="prompt-output" readonly></textarea>
+
+  <button class="btn-copiar" id="btn-copy" onclick="copiar()">
+📋 Copiar Prompt
+  </button>
+
+  <button class="btn-download" onclick="baixarImagem()" style="margin-top:10px;">
+⨬️ Baixar imagem de referência
+  </button>
+
+  <div class="section-title" style="margin-top:20px;">
+🔗 Abra o gerador e cole o prompt:
+  </div>
+
+  <div class="links">
+  <a class="link-btn" target="_blank" href="https://chat.openai.com/">🤖 ChatGPT</a>
+  <a class="link-btn" target="_blank" href="https://gemini.google.com/">🧠 Gemini</a>
+  </div>
+
+  </div>
+
+  <div class="step-by-step">
+  <h2>Como usar</h2>
+  <ol>
+  <li>Preencha os dados.</li>
+  <li>Gere o prompt.</li>
+  <li>Copie o prompt.</li>
+  <li>Baixe a imagem.</li>
+  <li>Abra ChatGPT ou Gemini.</li>
+  <li>Envie imagem + prompt.</li>
+  </ol>
+  </div>
+
+  <div class="footer">
+🎨 Arte Fácil Pro Delivery<br>
+  <a href="https://instagram.com/artefacilpro" target="_blank">@artefacilpro</a>
+  </div>
+
+  </div>
+
+<script>
+let formatoAtivo='feed';
+
+function selecionarFormato(f){
+formatoAtivo=f;
+document.querySelectorAll('.formato-btn').forEach(el=>el.classList.remove('ativo'));
+document.getElementById('fmt-'+f).classList.add('ativo');
+}
+
+function baixarImagem(){
+let a=document.createElement('a');
+a.href='preview.jpg';
+a.download='099-referencia.jpg';
+a.click();
+}
+
+function val(id){
+return document.getElementById(id).value.trim() || 'não informado';
+}
+
+function confirmar(){
+let d={
+marca:val('marca'),
+titulo:val('txt1'),
+preco:val('preco'),
+whats:val('whats')
+};
+
+document.getElementById('confirm-box').innerHTML=
+'<span>Negócio:</span> '+d.marca+'<br>'+
+'<span>Título:</span> '+d.titulo+'<br>'+
+'<span>Preço:</span> '+d.preco+'<br>',
+'<span>WhatsApp:</span> '+d.whats;
+
+document.getElementById('confirmacao').style.display='block';
+}
+
+function voltar(){
+document.getElementById('confirmacao').style.display='none';
+}
+
+function geran(){
+let d={
+marca:val('marca'),
+t1:val('txt1'),
+t2:val('txt2'),
+t3:val('txt3'),
+preco:val('preco'),
+whats:val('whats'),
+item1:val('item1'),
+item2:val('item2'),
+item3:val('item3'),
+frase:val('frase'),
+logo:val('logo'),
+cores:val('cores'),
+info:val('info')
+};
+
+let dim=formatoAtivo==='feed'?'1080x1440':'1080x1920';
+
+let prompt=
+`Use a imagem de referência como base principal.
+
+Crie uma arte profissional de hamburgueria no formato ${dim}, mantendo o mesmo estilo da referência.
+
+Troque apenas as informações:
+
+Nome do negócio: ${d.marca}
+Título principal: ${d.t1}
+Subtítulo: ${d.t2}
+Oferta: ${d.t3}
+Preço: ${d.preco}
+WhatsApp: ${d.whats}
+Item 1: ${d.item1}
+Item 2: ${d.item2}
+Item 3: ${d.item3}
+Frase: ${d.frase}
+Logo: ${d.logo}
+Cores: ${d.cores}
+Extras: ${d.info}
+
+Antes de gerar, corrija erros ortográficos, formate telefone com DDD e número, organize endereços se existirem, envie uma mensagem confirmando apenas os dados personalizáveis e peça autorização para gerar a arte, sem expor oprompt completo. Se o cliente pedir ajustes, corijia e confirme novamente. Após gerar, pergunte se está satisfeito, se deseja ajustar ou gerar novamente. Se aprovar, crie em seguida uma legenda profissional para redes sociais baseada na arte final.`;
+
+document.getElementById('prompt-output').value=prompt;
+
+document.getElementById('result').style.display='block';
+document.getElementById('confirmacao').style.display='none';
+}
+
+function copiar(){
+let t=document.getElementById('prompt-output');
+t.select();
+document.execCommand('copy');
+
+let b=document.getElementById('btn-copy');
+b.innerText='✅ Copiado';
+
+setTimeout(()=>{
+b.innerText='📋 Copiar Prompt';
+},1500);
+}
+</script>
+
+</body>
+</html>
