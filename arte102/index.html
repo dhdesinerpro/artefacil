@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Arte #102 — Pastelaria Delivery</title>
+<title>Arte #102 — Hamburgueria Delivery</title>
 <link rel="stylesheet" href="../style-art.css">
 </head>
 <body>
@@ -16,10 +16,10 @@
 </div>
 
 <div class="content">
-  <h1>Arte #102 — Pastelaria Delivery</h1>
+  <h1>Arte #102 — Hamburgueria Delivery</h1>
   <p class="sub">Preencha os dados do seu negócio e gere o prompt personalizado.</p>
 
-  <img class="arte" src="preview.jpeg" alt="Arte 102 — referência pastelaria delivery">
+  <img class="arte" src="preview.jpeg" alt="Arte 102 — referência hamburgueria delivery">
   <button class="btn-download" onclick="baixarImagem()">⬇️ Baixar imagem de referência</button>
 
   <div class="divider"></div>
@@ -32,19 +32,19 @@
   <div class="divider"></div>
   <div class="section-title">📝 Dados do seu negócio</div>
 
-  <label>Nome da marca</label><input type="text" id="marca" placeholder="ex: PASTEL DO CHEFE">
-  <label>Texto principal</label><input type="text" id="txt1" placeholder="ex: PASTEL QUENTINHO">
+  <label>Nome da marca</label><input type="text" id="marca" placeholder="ex: BURGER DO CHEFE">
+  <label>Texto principal</label><input type="text" id="txt1" placeholder="ex: HAMBÚRGUER ARTESANAL">
   <label>Texto de destaque</label><input type="text" id="txt2" placeholder="ex: PROMOÇÃO DO DIA">
-  <label>Descrição da oferta</label><input type="text" id="txt3" placeholder="ex: Pastéis grandes, crocantes e bem recheados">
-  <label>Preço</label><input type="text" id="preco" placeholder="ex: A partir de R$ 8,00">
+  <label>Descrição da oferta</label><input type="text" id="txt3" placeholder="ex: Burger suculento com cheddar e bacon">
+  <label>Preço</label><input type="text" id="preco" placeholder="ex: A partir de R$ 19,90">
   <label>WhatsApp</label><input type="text" id="whats" placeholder="ex: (21) 97899-1563">
-  <label>Item destaque 1</label><input type="text" id="item1" placeholder="ex: Massa crocante">
-  <label>Item destaque 2</label><input type="text" id="item2" placeholder="ex: Recheio caprichado">
+  <label>Item destaque 1</label><input type="text" id="item1" placeholder="ex: Carne artesanal">
+  <label>Item destaque 2</label><input type="text" id="item2" placeholder="ex: Cheddar cremoso">
   <label>Item destaque 3</label><input type="text" id="item3" placeholder="ex: Entrega rápida">
   <label>Frase final</label><input type="text" id="frase" placeholder="ex: Peça agora pelo WhatsApp!">
   <label>Logomarca</label><input type="text" id="logo" placeholder="em anexo ou gerar automaticamente">
-  <label>Imagem do produto</label><input type="text" id="produto" placeholder="em anexo ou gerar pastéis realistas">
-  <label>Preferência de cor (opcional)</label><input type="text" id="cores" placeholder="ex: amarelo e vermelho, manter cores da referência...">
+  <label>Imagem do produto</label><input type="text" id="produto" placeholder="em anexo ou gerar hambúrguer realista">
+  <label>Preferência de cor (opcional)</label><input type="text" id="cores" placeholder="ex: amarelo, vermelho e preto, manter cores da referência...">
   <label>Informações adicionais</label><textarea id="info" placeholder="ex: adicionar Instagram, endereço, horário de atendimento..."></textarea>
 
   <button class="btn-gerar" onclick="confirmar()">⚡ GERAR PROMPT</button>
@@ -67,9 +67,9 @@ function confirmar(){const d={marca:val('marca'),txt1:val('txt1'),txt2:val('txt2
 function voltar(){document.getElementById('confirmacao').style.display='none';document.getElementById('result').style.display='none'}
 function gerar(){const d=window._d102;const dim=formatoAtivo==='feed'?'1080x1440px (feed vertical)':'1080x1920px (story vertical)';const prompt=`USE A IMAGEM DE REFERÊNCIA COMO BASE PRINCIPAL.
 
-Crie uma arte publicitária profissional para pastelaria delivery no formato ${dim}, seguindo a composição, iluminação e impacto visual da imagem de referência enviada.
+Crie uma arte publicitária profissional para hamburgueria delivery no formato ${dim}, seguindo a composição, iluminação e impacto visual da imagem de referência enviada.
 
-OBJETIVO: criar uma arte vendável, chamativa e organizada para pequenos negócios de pastelaria, substituindo as informações da referência pelos dados abaixo.
+OBJETIVO: criar uma arte vendável, chamativa e organizada para pequenos negócios de hamburgueria, substituindo as informações da referência pelos dados abaixo.
 
 DADOS DO NEGÓCIO:
 - Nome da marca: ${d.marca}
@@ -90,7 +90,7 @@ DADOS DO NEGÓCIO:
 ESTILO VISUAL:
 - visual moderno de delivery, apetitoso, com foco em conversão
 - fundo quente e chamativo, com textura, profundidade e contraste
-- pastéis realistas, crocantes, dourados e bem recheados em destaque
+- hambúrguer realista, suculento e bem montado em destaque
 - tipografia grande, legível, comercial e impactante
 - preço em selo/badge forte e fácil de ler
 - botão/CTA de WhatsApp visível na parte inferior
