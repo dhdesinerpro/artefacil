@@ -1,36 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap');
 
-/*
- * Global stylesheet for Arte Fácil Pro Delivery
- *
- * This stylesheet defines a modern, mobile‑first dark theme inspired by
- * app‑like interfaces. It uses CSS variables for colours to make it easy
- * to tweak the palette in one place. The palette is based on best
- * practices for dark mode: dark greys instead of pure black for
- * backgrounds, subtle surface layers, and an accent colour that stands
- * out without being oversaturated. A design article from Hype4 notes that
- * saturated colours become harsh against dark backgrounds and recommends
- * reducing saturation by 20–30% and infusing greys with a hint of the
- * accent hue to create a coherent palette【227474210211597†L90-L110】.  The
- * chosen palette applies these principles by using a deep grey base,
- * slightly lighter surfaces, and a warm gold accent derived from the
- * original brand colour with reduced saturation.
- */
-
 :root {
-  /* base colours */
-  --bg: #121212;               /* main background – dark grey instead of pure black【25722564081109†L355-L376】 */
-  --bg-secondary: #1e1e1e;     /* secondary surfaces (cards, inputs) */
-  --border: #2a2a2a;           /* subtle borders separating surfaces */
-  --text-primary: #e0e0e0;     /* main text colour – high contrast for readability【25722564081109†L355-L379】 */
-  --text-secondary: #999999;   /* secondary text – subdued for less important content */
-  /* accent colour derived from brand yellow, slightly desaturated
-     to improve readability on dark backgrounds【227474210211597†L90-L100】 */
-  --accent: #f5b63e;           /* warm gold accent */
-  --accent-hover: #f5c46e;     /* lighter accent for hover states */
+  --bg: #121212;
+  --bg-secondary: #1e1e1e;
+  --border: #2a2a2a;
+  --text-primary: #e0e0e0;
+  --text-secondary: #999999;
+  --accent: #f5b63e;
+  --accent-hover: #f5c46e;
 }
 
-/* Reset and global styles */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -46,7 +25,6 @@ body {
   flex-direction: column;
 }
 
-/* Header section for index */
 .header {
   padding: 24px 16px;
   text-align: center;
@@ -75,7 +53,6 @@ body {
   color: var(--text-secondary);
 }
 
-/* Filter chips */
 .filters {
   display: flex;
   gap: 8px;
@@ -104,7 +81,6 @@ body {
   font-weight: 600;
 }
 
-/* Counter */
 .counter {
   text-align: center;
   font-size: 0.8rem;
@@ -112,7 +88,6 @@ body {
   padding: 12px;
 }
 
-/* Grid of cards */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
@@ -142,10 +117,11 @@ body {
 
 .card img {
   width: 100%;
-  height: 0;
-  padding-bottom: 125%;
+  aspect-ratio: 4 / 5;
+  height: auto;
   object-fit: cover;
   display: block;
+  background: #111;
 }
 
 .card .info {
@@ -186,7 +162,6 @@ body {
   background: var(--accent-hover);
 }
 
-/* Empty message */
 .empty {
   text-align: center;
   padding: 60px;
@@ -195,7 +170,6 @@ body {
   display: none;
 }
 
-/* Footer */
 .footer {
   text-align: center;
   color: var(--text-secondary);
