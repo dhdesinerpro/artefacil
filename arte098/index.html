@@ -220,7 +220,13 @@ Logo: ${d.logo}
 Produto: ${d.produto}
 Extras: ${d.info}
 
-Manter visual moderno, apetitoso e vendedor.`;
+Antes de gerar a imagem, revise os dados enviados pelo cliente. Corrija erros de português, ajuste acentuação, organize o endereço e formate telefone/WhatsApp separando DDD e número. Se o telefone vier agrupado, transforme em formato legível. Exemplos: 11999998888 → (11) 99999-8888; 21960146237 → (21) 96014-6237.
+
+Envie primeiro uma mensagem curta confirmando apenas os dados personalizados, sem mostrar este prompt completo. Peça permissão para gerar a imagem. Caso o cliente peça alteração, ajuste os dados e confirme novamente antes de gerar.
+
+Após gerar a arte, pergunte se o cliente ficou satisfeito, se deseja ajustar algo ou gerar novamente, sempre mantendo o padrão do modelo de referência enviado no início. Se o cliente responder que gostou, aprovou ou ficou satisfeito, ofereça uma descrição para postagem nas redes sociais e crie uma legenda baseada na arte final.
+
+Manter visual moderno, apetitoso e vendedor. Priorizar leitura clara do título, produto, preço e WhatsApp. Não adicionar informações que não foram fornecidas.`;
 
 document.getElementById('prompt-output').value=prompt;
 
