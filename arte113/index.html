@@ -7,193 +7,16 @@
 <link rel="stylesheet" href="../style-art.css">
 </head>
 <body>
-
-<div id="loader">
-  <div class="loader-card"><div class="loader-dot"></div></div>
-</div>
-
-<div class="topbar">
-  <a class="btn-back" href="../">← Voltar</a>
-  <div class="badge">⭐ ARTE DÁCIL PRO DELIVERY</div>
-</div>
-
-<div class="content">
-
-<h1>Arte #113 — Prato do Dia Macarrço</h1>
-<p class="sub">Preencha somente o essencial. O restante do visual será mantido como na referência.</p>
-
-<img class="arte" src="preview.jpg" alt="Arte 113">
-
-<button class="btn-download" onclick="baixarImagem()">⬇️ Baixar imagem de referência</button>
-
-<div class="divider"></div>
-
-<div class="section-title">📐 Formato da arte</div>
-
-<div class="formato-row">
-  <div class="formato-btn active" id="fmt-feed" onclick="selecionarFormato('feed')">
-    <strong>Feed</strong>1080 × 1440
-  </div>
-  <div class="formato-btn" id="fmt-story" onclick="selecionarFormato('story')">
-    <strong>Story</strong>1080 Õ 1920
-  </div>
-</div>
-
-<div class="divider"></div>
-
-<div class="section-title">📝 Dados principais</div>
-
-<label>Nome do negócio</label>
-<input id="marca" placeholder="ex: Bella Massa Restaurante">
-
-<label>Título principal</label>
-<input id="titulo" placeholder="ex: Prato do Dia">
-
-<label>Nome do prato</label>
-<input id="prato" placeholder="ex: Macarrão">
-
-<label>Preço</label>
-<input id="preco" placeholder="ex: R$ 25,90">
-
-<label>WhatsApp</label>
-<input id="whats" placeholder="ex: (21) 99555-1212">
-
-<label>Data ou chamada especial</label>
-<input id="data" placeholder="ex: 25.out — Dia Nacional do Macarrão">
-
-<label>Frase ou chamada</label>
-<input id="frase" placeholder="ex: Simples, delicioso e feito para você">
-
-<label>Logomarca</label>
-<select id="logo">
-  <option>Vou enviar minha logomarca</option>
-  <option>Crie uma logomarca simples</option>
-  <option>Não usar logomarca</option>
-</select>
-
-<label>Foto do produto</label>
-<select id="produto">
-  <option>Usar imagem da referência</option>
-  <option>Vou enviar foto do meu prato</option>
-  <option>Gerar prato parecido</option>
-</select>
-
-<label>Diferenciais do rodapé</label>
-<textarea id="diferenciais" placeholder="ex: ingredientes frescos, feito na hora com carinho, sabor que aconchega"></textarea>
-
-<label>Outras informações</label>
-<textarea id="info" placeholder="Algum detalhe extra"></textarea>
-
-<button class="btn-gerar" onclick="confirmar()">⚡ GERAR PROMPT</button>
-
-<div class="result-box" id="confirmacao">
-  <div class="section-title">✅ Confirme</div>
-  <div class="confirm-box" id="resumo"></div>
-  <div class="btn-row">
-    <button class="btn-voltar2" onclick="voltar()">Editar</button>
-    <button class="btn-confirmar" onclick="gerar()">Confirmar</button>
-  </div>
-</div>
-
-<div class="result-box" id="result">
-  <div class="section-title">📋 Prompt personalizado</div>
-  <textarea class="prompt-area" id="prompt-output" readonly></textarea>
-  <button class="btn-copiar" id="btn-copy" onclick="copiar()">📋 Copiar Prompt</button>
-  <button class="btn-download" onclick="baixarImagem()" style="margin-top:10px;">⬇️ Baixar imagem de referência</button>
-
-  <div class="section-title" style="margin-top:20px;">🔗 Abra o gerador e cole o prompt:</div>
-  <div class="links">
-    <a class="link-btn" target="_blank" href="https://chat.openai.com/">🤖 ChatGPT</a>
-    <a class="link-btn" target="_blank" href="https://gemini.google.com/">🧠 Gemini</a>
-  </div>
-</div>
-
-<div class="step-by-step">
-  <h2>Como usar</h2>
-  <ol>
-    <li>Preencha os dados principais.</li>
-    <li>Gere o prompt.</li>
-    <li>Copie o prompt e baixe a imagem.</li>
-    <li>Abra ChatGPT ou Gemini.</li>
-    <li>Envie imagem + prompt.</li>
-  </ol>
-</div>
-
-<div class="footer">
-  🎪 Arte Fácil Pro Delivery<br>
-  <a href="https://instagram.com/artefacilpro" target="_blank">@artefacilpro</a>
-</div>
-
-</div>
-
-<script>
-let formatoAtivo='feed';
-
-window.addEventListener('load',()=>{
-  setTimeout(()=>{
-    let l=document.getElementById('loader');
-    if(l)l.classList.add('hide')
-  },450)
-});
-
-function selecionarFormato(f){
-  formatoAtivo=f;
-  document.querySelectorAll('.formato-btn').forEach(el=>el.classList.remove('active'));
-  document.getElementById('fmt-'+f).classList.add('active')
-}
-
-function baixarImagem(){
-  let a=document.createElement('a');
-  a.href='preview.jpg';
-  a.download='113-referencia.jpg';
-  a.click()
-}
-
-function val(id){
-  return document.getElementById(id).value.trim()||'não informado'
-}
-
-function confirmar(){
-  let d={
-    marca:val('marca'),
-    titulo:val('titulo'),
-    prato:val('prato'),
-    preco:val('preco'),
-    whats:val('whats'),
-    data:val('data'),
-    frase:val('frase')
-  };
-  document.getElementById('resumo').innerHTML=
-    '<span>Negócio:</span> '+d.marca+
-    '<br><span>Título:</span> '+d.titulo+
-    '<br><span>Prato:</span> '+d.prato+
-    '<br><span>Preço:</span> '+d.preco+
-    '<br><span>WhatsApp:</span> '+d.whats+
-    '<br><span>Data/chamada:</span> '+d.data+
-    '<br><span>Frase:</span> '+d.frase;
-  document.getElementById('confirmacao').style.display='block'
-}
-
-function voltar(){
-  document.getElementById('confirmacao').style.display='none'
-}
-
-function gerar(){
-  let d={
-    marca:val('marca'),
-    titulo:val('titulo'),
-    prato:val('prato'),
-    preco:val('preco'),
-    whats:val('whats'),
-    data:val('data'),
-    frase:val('frase'),
-    logo:val('logo'),
-    produto:val('produto'),
-    diferenciais:val('diferenciais'),
-    info:val('info')
-  };
-  let dim=formatoAtivo==='feed'?'1080x1440':'1080x1920';
-  let prompt=`Use a imagem de referência como base principal.
+<div id="loader"><div class="loader-card"><div class="loader-dot"></div></div></div>
+<div class="topbar"><a class="btn-back" href="../">← Voltar</a><div class="badge">⭐ ARTE FÁCIL PRO DELIVERY</div></div>
+<div class="content"><h1>Arte #113 — Prato do Dia Macarrão</h1><p class="sub">Preencha somente o essencial. O restante do visual será mantido como na referência.</p><img class="arte" src="preview.jpg" alt="Arte 113"><button class="btn-download" onclick="baixarImagem()">⬇️ Baixar imagem de referência</button><div class="divider"></div><div class="section-title">📐 Formato da arte</div><div class="formato-row"><div class="formato-btn active" id="fmt-feed" onclick="selecionarFormato('feed')"><strong>Feed</strong>1080 × 1440</div><div class="formato-btn" id="fmt-story" onclick="selecionarFormato('story')"><strong>Story</strong>1080 × 1920</div></div><div class="divider"></div><div class="section-title">📝 Dados principais</div><label>Nome do negócio</label><input id="marca" placeholder="ex: Bella Massa Restaurante"><label>Título principal</label><input id="titulo" placeholder="ex: Prato do Dia"><label>Nome do prato</label><input id="prato" placeholder="ex: Macarrão"><label>Preço</label><input id="preco" placeholder="ex: R$ 25,90"><label>WhatsApp</label><input id="whats" placeholder="ex: (21) 99555-1212"><label>Data ou chamada especial</label><input id="data" placeholder="ex: 25.out — Dia Nacional do Macarrão"><label>Frase ou chamada</label><input id="frase" placeholder="ex: Simples, delicioso e feito para você"><label>Logomarca</label><select id="logo"><option>Vou enviar minha logomarca</option><option>Quero que você crie uma logomarca</option></select><label>Imagem do produto</label><select id="imagemProduto"><option>Vou enviar a foto do produto</option><option>Quero que gere uma imagem realista</option></select><label>Diferenciais do rodapé</label><textarea id="diferenciais" placeholder="ex: ingredientes frescos, feito na hora com carinho, sabor que aconchega"></textarea><label>Outras informações</label><textarea id="info" placeholder="Algum detalhe extra"></textarea><button class="btn-gerar" onclick="confirmar()">⚡ GERAR PROMPT</button><div class="result-box" id="confirmacao"><div class="section-title">✅ Confirme</div><div class="confirm-box" id="resumo"></div><div class="btn-row"><button class="btn-voltar2" onclick="voltar()">Editar</button><button class="btn-confirmar" onclick="gerar()">Confirmar</button></div></div><div class="result-box" id="result"><div class="section-title">📋 Prompt personalizado</div><textarea class="prompt-area" id="prompt-output" readonly></textarea><button class="btn-copiar" id="btn-copy" onclick="copiar()">📋 Copiar Prompt</button><button class="btn-download" onclick="baixarImagem()" style="margin-top:10px;">⬇️ Baixar imagem de referência</button><div class="section-title" style="margin-top:20px;">🔗 Abra o gerador e cole o prompt:</div><div class="links"><a class="link-btn" target="_blank" href="https://chat.openai.com/">🤖 ChatGPT</a><a class="link-btn" target="_blank" href="https://gemini.google.com/">🧠 Gemini</a></div></div><div class="step-by-step"><h2>Como usar</h2><ol><li>Preencha os dados principais.</li><li>Gere o prompt.</li><li>Copie o prompt e baixe a imagem.</li><li>Abra ChatGPT ou Gemini.</li><li>Envie imagem + prompt.</li></ol></div><div class="footer">🎨 Arte Fácil Pro Delivery<br><a href="https://instagram.com/artefacilpro" target="_blank">@artefacilpro</a></div></div><script>
+let formatoAtivo='feed';window.addEventListener('load',()=>setTimeout(()=>{let l=document.getElementById('loader');if(l)l.classList.add('hide')},450));
+function selecionarFormato(f){formatoAtivo=f;document.querySelectorAll('.formato-btn').forEach(el=>el.classList.remove('active'));document.getElementById('fmt-'+f).classList.add('active')}
+function baixarImagem(){let a=document.createElement('a');a.href='preview.jpg';a.download='113-referencia.jpg';a.click()}
+function val(id){return document.getElementById(id).value.trim()||'não informado'}
+function confirmar(){let d={marca:val('marca'),titulo:val('titulo'),prato:val('prato'),preco:val('preco'),whats:val('whats'),data:val('data'),frase:val('frase'),logo:val('logo'),imagemProduto:val('imagemProduto')};document.getElementById('resumo').innerHTML='<span>Negócio:</span> '+d.marca+'<br><span>Título:</span> '+d.titulo+'<br><span>Prato:</span> '+d.prato+'<br><span>Preço:</span> '+d.preco+'<br><span>WhatsApp:</span> '+d.whats+'<br><span>Data/chamada:</span> '+d.data+'<br><span>Frase:</span> '+d.frase+'<br><span>Logomarca:</span> '+d.logo+'<br><span>Imagem do produto:</span> '+d.imagemProduto;document.getElementById('confirmacao').style.display='block'}
+function voltar(){document.getElementById('confirmacao').style.display='none'}
+function gerar(){let d={marca:val('marca'),titulo:val('titulo'),prato:val('prato'),preco:val('preco'),whats:val('whats'),data:val('data'),frase:val('frase'),logo:val('logo'),imagemProduto:val('imagemProduto'),diferenciais:val('diferenciais'),info:val('info')};let dim=formatoAtivo==='feed'?'1080x1440':'1080x1920';let prompt=`Use a imagem de referência como base principal.
 
 Crie uma arte profissional para restaurante no formato ${dim}, mantendo o mesmo estilo da referência: fundo claro com textura suave de papel, visual italiano e acolhedor, toalha xadrez vermelha no canto superior direito e na base, folhas de manjericão decorativas, logomarca centralizada no topo, chamada de delivery no canto superior esquerdo com ícone de celular, título grande à esquerda com letras vermelhas e amarelas, faixa vermelha com nome do prato em destaque, prato grande de macarrão ocupando o lado direito da arte, selo circular vermelho de preço no lado inferior esquerdo, bloco de WhatsApp grande em vermelho no rodapé esquerdo, data comemorativa ou chamada especial próxima ao preço, frase manuscrita no prato no canto inferior direito e rodapé vermelho com três diferenciais acompanhados de ícones.
 
@@ -206,8 +29,8 @@ Preço: ${d.preco}
 WhatsApp: ${d.whats}
 Data ou chamada especial: ${d.data}
 Frase/chamada: ${d.frase}
-Logo: ${d.logo}
-Produto/foto: ${d.produto}
+Logomarca: ${d.logo}. Se o cliente escolheu enviar a logomarca, solicite/aguarde o arquivo e use a logomarca enviada sem inventar outra. Se escolheu criar uma logomarca, crie uma logomarca simples, profissional e coerente com o nome da marca.
+Imagem do produto: ${d.imagemProduto}. Se o cliente escolheu enviar a foto do produto, solicite/aguarde a foto e use essa foto como referência principal do produto. Se escolheu gerar uma imagem realista, crie um prato realista, apetitoso e coerente com o nome do prato informado.
 Diferenciais do rodapé: ${d.diferenciais}
 Extras: ${d.info}
 
@@ -217,21 +40,6 @@ Envie primeiro uma mensagem curta confirmando apenas os dados personalizados, se
 
 Após gerar a arte, pergunte se o cliente ficou satisfeito, se deseja ajustar algo ou gerar novamente, sempre mantendo o padrão do modelo de referência enviado no início. Se o cliente responder que gostou, aprovou ou ficou satisfeito, ofereça uma descrição para postagem nas redes sociais e crie uma legenda baseada na arte final.
 
-Manter visual profissional, claro, apetitoso, italiano, acolhedor e vendedor. Priorizar leitura clara do título, prato, preço e WhatsApp. Não adicionar informações que não foram fornecidas.`;
-  document.getElementById('prompt-output').value=prompt;
-  document.getElementById('result').style.display='block';
-  document.getElementById('confirmacao').style.display='none'
-}
-
-function copiar(){
-  let t=document.getElementById('prompt-output');
-  t.select();
-  document.execCommand('copy');
-  let b=document.getElementById('btn-copy');
-  b.innerText='✅ Copiado';
-  setTimeout(()=>{b.innerText='📋 Copiar Prompt'},1500)
-}
-</script>
-
-</body>
-</html>
+Manter visual profissional, claro, apetitoso, italiano, acolhedor e vendedor. Priorizar leitura clara do título, prato, preço e WhatsApp. Não adicionar informações que não foram fornecidas.`;document.getElementById('prompt-output').value=prompt;document.getElementById('result').style.display='block';document.getElementById('confirmacao').style.display='none'}
+function copiar(){let t=document.getElementById('prompt-output');t.select();document.execCommand('copy');let b=document.getElementById('btn-copy');b.innerText='✅ Copiado';setTimeout(()=>{b.innerText='📋 Copiar Prompt'},1500)}
+</script></body></html>
