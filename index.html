@@ -1,72 +1,214 @@
 <!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Arte Fácil Pro Delivery</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Arte Fácil Pro Delivery</title>
 <style>
-:root{--bg:#09090f;--panel:#14141f;--panel2:#1d1d2b;--line:rgba(255,255,255,.10);--text:#f8f8fb;--muted:#a6a6b8;--orange:#ff7a00;--gold:#f5b63e;--green:#10a37f}
-*{box-sizing:border-box;margin:0;padding:0}body{font-family:Inter,Arial,sans-serif;min-height:100vh;background:radial-gradient(circle at 50% 0,#2b2033 0,#0b0b12 44%,#060609 100%);color:var(--text)}a{text-decoration:none;color:inherit}.wrap{width:min(1180px,94vw);margin:auto;padding26px 0 44px}.hero{display:grid;grid-template-columns:.9fr 1.1fr;gap:34px;align-items:center}.copy{padding:18px 0}.badge{display:inline-flex;align-items:center;gap:8px;color:var(--gold);border:1px solid rgba(245,182,62,.25);background:rgba(245,182,62,.09);border-radius:999px;padding:8px 13px;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase}.logo{display:flex;align-items:center;gap:12px;margin:18px 0}.mark{width:48px;height:48px;border-radius:17px;background:linear-gradient(135deg,var(--orange),#ffb000);display:grid;place-items:center;font-size:25px;box-shadow:0 18px 50px rgba(255,122,0,.25)}.brand small{display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:3px}.brand strong{font-size:26px}
-h1{font-size:clamp(38px,5vw,68px);line-height:.98;margin:12px 0 16px;letter-spacing:-1.8px}h1 span{color:var(--orange)}.lead{color:var(--muted);font-size:17px;line-height:1.65;max-width:520px}.benefits{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px}.benefit{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:18px;padding:13px}.benefit b{display:block;font-size:14px;margin-bottom:3px}.benefit small{color:var(--muted);font-size:12px;line-height:1.35}
-.phone-wrap{position:relative;display:grid;place-items:center}.glow{position:absolute;width:410px;height:410px;border-radius:999px;background:radial-gradient(circle,rgba(255,122,0,.22),transparent 62%);filter:blur(10px)}.phone{position:relative;width:min(390px,92vw);height:760px;background:#08090d;border:12px solid #19191d;border-radius:52px;box-shadow:0 40px 120px rgba(0,0,0,.65),inset 0 0 0 1px rgba(255,255,255,.08);overflow:hidden}.screen{height:100%;padding:24px 18px 86px;background:linear-gradient(180deg,#11121a,#08090d)}.status{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:800;color:#fff;margin-bottom:22px}.app-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:22px}.mini-logo{display:flex;align-items:center;gap:9px}.mini-icon{width:35px;height:35px;border-radius:13px;background:linear-gradient(135deg,var(--orange),#ffb000);display:grid;place-items:center}.mini-logo b{font-size:16px}.mini-logo small{display:block;color:var(--gold);font-size:8px;letter-spacing:2px}.bell{width:34px;height:34px;border-radius:14px;background:#1d1d29;display:grid;place-items:center;color:#bbb}.hello{font-size:24px;font-weight:900;margin-bottom:7px}.desc{color:#a9a9b8;font-size:14px;line-height:1.45;margin-bottom:18px}.tool-list{display:grid;gap:13px}.tool-card{position:relative;display:grid;grid-template-columns:54px 1fr 30px;gap:13px;align-items:center;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:21px;padding:14px;min-height:88px}.tool-card.hot{border-color:rgba(255,122,0,.55);background:linear-gradient(145deg,rgba(255,122,0,.16),rgba(255,255,255,.035))}.tool-icon{width:54px;height:54px;border-radius:18px;background:#f1f1f4;color:#111;display:grid;place-items:center;font-size:26px}.tool-card b{display:block;font-size:15px;margin-bottom:4px}.tool-card span{color:#aaa;font-size:12px;line-height:1.32}.arrow{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#ccc}.soon{opacity:.55}.soon-pill{position:absolute;right:12px;top:12px;background:rgba(255,255,255,.1);border-radius:999px;padding:3px 8px;font-size:10px;color:#ccc}.nav{position:absolute;left:12px;right:12px;bottom:12px;height:66px;background:rgba(19,20,27,.96);border:1px solid var(--line);border-radius:25px;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;text-align:center;color:#8d8d99;font-size:10px}.nav div:first-child{color:var(--orange)}.nav i{display:block;font-style:normal;font-size:19px;margin-bottom:4px}
-.modules{margin-top:38px;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}.module{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;gap:13px;align-items:flex-start}.module .micon{font-size:28px;color:var(--orange)}.module b{display:block;margin-bottom:4px}.module p{color:var(--muted);font-size:13px;line-height:1.4}
+:root{
+  --bg:#07070b;--panel:#12131d;--panel2:#1b1c2a;--card:#242535;--line:rgba(255,255,255,.10);
+  --text:#f7f7fb;--muted:#aaaaba;--soft:#77788a;--orange:#ff7a00;--gold:#f5b63e;--green:#10a37f;--blue:#4b9dff;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{min-height:100%}
+body{font-family:Inter,Arial,sans-serif;background:radial-gradient(circle at top,#261d35 0,#090910 48%,#050507 100%);color:var(--text)}
+a{text-decoration:none;color:inherit}
+button,input{font:inherit}
+.view{min-height:100vh}
+.hidden{display:none!important}
+
+/* LOGIN */
+.login{display:grid;place-items:center;padding:28px 18px}
+.login-card{width:min(420px,100%);background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.025));border:1px solid var(--line);border-radius:34px;padding:28px;box-shadow:0 35px 120px rgba(0,0,0,.45)}
+.brand{display:flex;align-items:center;gap:13px;margin-bottom:26px}
+.logo{width:54px;height:54px;border-radius:19px;background:linear-gradient(135deg,var(--orange),var(--gold));display:grid;place-items:center;color:#111;font-size:25px;font-weight:900;box-shadow:0 18px 45px rgba(255,122,0,.28)}
+.brand small{display:block;color:var(--gold);font-size:11px;font-weight:900;letter-spacing:1.5px;text-transform:uppercase}
+.brand strong{font-size:22px}
+.login h1{font-size:34px;line-height:1.02;margin-bottom:12px}
+.login p{color:var(--muted);line-height:1.55;margin-bottom:22px}
+.field{margin-bottom:13px}
+label{display:block;color:#c5c5d8;font-size:12px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;margin-bottom:7px}
+input{width:100%;background:#202132;color:#fff;border:1px solid var(--line);border-radius:16px;padding:15px;outline:none;font-weight:700}
+input:focus{border-color:rgba(255,122,0,.65);box-shadow:0 0 0 4px rgba(255,122,0,.10)}
+.primary{width:100%;border:0;border-radius:17px;padding:15px 16px;background:linear-gradient(135deg,var(--orange),#ff3d45);color:#fff;font-weight:900;cursor:pointer;margin-top:8px}
+.secondary{width:100%;border:1px solid var(--line);border-radius:17px;padding:14px 16px;background:rgba(255,255,255,.06);color:#fff;font-weight:900;cursor:pointer;margin-top:10px}
+.login-note{font-size:12px;color:var(--soft);line-height:1.45;margin-top:16px;text-align:center}
+
+/* APP */
+.app{padding:26px 0 42px}
+.shell{width:min(1180px,94vw);margin:0 auto;display:grid;grid-template-columns:.95fr 1.05fr;gap:34px;align-items:center}
+.copy{padding:20px 0}
+.badge{display:inline-flex;align-items:center;gap:8px;color:var(--gold);border:1px solid rgba(245,182,62,.25);background:rgba(245,182,62,.08);border-radius:999px;padding:8px 13px;font-size:12px;font-weight:900;letter-spacing:1px;text-transform:uppercase}
+.copy h1{font-size:clamp(36px,5vw,66px);line-height:.98;letter-spacing:-1.8px;margin:18px 0 15px}
+.copy h1 span{color:var(--orange)}
+.copy p{color:var(--muted);font-size:17px;line-height:1.65;max-width:540px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:24px;max-width:560px}
+.stat{background:rgba(255,255,255,.055);border:1px solid var(--line);border-radius:19px;padding:14px}
+.stat b{display:block;font-size:15px;margin-bottom:4px}
+.stat small{color:var(--muted);font-size:12px;line-height:1.35}
+
+.phone-wrap{position:relative;display:grid;place-items:center}
+.glow{position:absolute;width:430px;height:430px;border-radius:999px;background:radial-gradient(circle,rgba(255,122,0,.23),transparent 64%);filter:blur(10px)}
+.phone{position:relative;width:min(395px,92vw);height:770px;background:#08090d;border:12px solid #19191e;border-radius:54px;box-shadow:0 45px 130px rgba(0,0,0,.62),inset 0 0 0 1px rgba(255,255,255,.08);overflow:hidden}
+.screen{height:100%;background:linear-gradient(180deg,#11121a,#08090d);padding:24px 17px 84px}
+.status{display:flex;justify-content:space-between;align-items:center;font-size:13px;font-weight:900;margin-bottom:22px;color:#fff}
+.app-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px}
+.profile{display:flex;align-items:center;gap:10px}
+.avatar{width:42px;height:42px;border-radius:16px;background:linear-gradient(135deg,var(--orange),var(--gold));display:grid;place-items:center;color:#111;font-weight:900}
+.profile b{display:block;font-size:16px}
+.profile small{display:block;color:var(--gold);font-size:10px;letter-spacing:1.7px;font-weight:900}
+.icon-btn{width:38px;height:38px;border-radius:15px;background:#1d1e2b;display:grid;place-items:center;color:#bbb;font-weight:900}
+.hello{font-size:25px;font-weight:950;margin-bottom:7px}
+.desc{color:#a9a9b8;font-size:14px;line-height:1.45;margin-bottom:18px}
+.tool-list{display:grid;gap:13px}
+.tool-card{position:relative;display:grid;grid-template-columns:54px 1fr 30px;gap:13px;align-items:center;background:linear-gradient(145deg,rgba(255,255,255,.085),rgba(255,255,255,.035));border:1px solid var(--line);border-radius:22px;padding:14px;min-height:92px}
+.tool-card.hot{border-color:rgba(255,122,0,.5);background:linear-gradient(145deg,rgba(255,122,0,.16),rgba(255,255,255,.035))}
+.tool-card.green{border-color:rgba(16,163,127,.5);background:linear-gradient(145deg,rgba(16,163,127,.14),rgba(255,255,255,.035))}
+.tool-icon{width:54px;height:54px;border-radius:19px;background:#f1f1f5;color:#111;display:grid;place-items:center;font-size:26px;font-weight:900}
+.tool-card b{display:block;font-size:15px;margin-bottom:4px}
+.tool-card span{display:block;color:#aaa;font-size:12px;line-height:1.35}
+.arrow{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.08);display:grid;place-items:center;color:#ddd}
+.soon{opacity:.58}
+.soon-pill{position:absolute;right:12px;top:10px;background:rgba(255,255,255,.1);border-radius:999px;padding:3px 8px;font-size:10px;color:#ccc}
+.bottom-nav{position:absolute;left:12px;right:12px;bottom:12px;height:66px;background:rgba(19,20,27,.96);border:1px solid var(--line);border-radius:66px;display:grid;grid-template-columns:repeat(4,1fr);align-items:center;text-align:center;color:#8c8c98;font-size:10px}
+.bottom-nav a:first-child{color:var(--orange)}
+.bottom-nav i{display:block;font-style:normal;font-size:20px;margin-bottom:4px}
+
+.modules{width:min(1180px,94vw);margin:36px auto 0;display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.module{background:rgba(255,255,255,.045);border:1px solid var(--line);border-radius:22px;padding:18px;display:flex;gap:13px;align-items:flex-start}
+.module .micon{font-size:28px;color:var(--orange)}
+.module b{display:block;margin-bottom:4px}
+.module p{color:var(--muted);font-size:13px;line-height:1.4}
 .footer{text-align:center;color:#777;font-size:12px;margin-top:34px}
-@media(max-width:980px){.hero{grid-template-columns:1fr}.copy{text-align:center}.lead{margin:auto}.benefits{max-width:560px;margin:24px auto 0}.modules{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.wrap{padding:18px 0 32px}.benefits,.modules{grid-template-columns:1fq}.phone{height:720px;border-width:9px;border-radius:44px}.screen{padding:22px 15px 82px}.tool-card{grid-template-columns:48px 1fr 28px}.tool-icon{width:48px;height:48px}.hero{gap:18px}}
+.logout{display:inline-block;margin-top:14px;border:1px solid var(--line);background:rgba(255,255,255,.06);color:#bbb;border-radius:999px;padding:8px 12px;font-size:12px;font-weight:800;cursor:pointer}
+
+@media(max-width:980px){
+  .shell{grid-template-columns:1fr}
+  .copy{text-align:center}
+  .copy p{margin:auto}
+  .stats{margin:24px auto 0}
+  .modules{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:560px){
+  .app{padding:0}
+  .shell{width:100%;display:block}
+  .copy{display:none}
+  .phone-wrap{min-height:100vh}
+  .phone{width:100%;height:100vh;border:0;border-radius:0;box-shadow:none}
+  .screen{padding:22px 15px 84px}
+  .modules{display:none}
+  .glow{display:none}
+  .login{padding:18px}
+  .login-card{border-radius:28px;padding:22px}
+  .tool-card{grid-template-columns:50px 1fr 28px}
+}
 </style>
 </head>
 <body>
-<div class="wrap">
-  <section class="hero">
+<section id="login" class="view login">
+  <div class="login-card">
+    <div class="brand"><div class="logo">AF</div><div><small>Delivery</small><strong>Arte Fácil Pro</strong></div></div>
+    <h1>Entre para acessar suas ferramentas.</h1>
+    <p>Use a central para criar artes, calcular preços, montar combos e gerar briefing de logomarca profissional.</p>
+    <div class="field"><label>Nome do estabelecimento</label><input id="businessName" placeholder="Ex: Burger Prime"></div>
+    <div class="field"><label>WhatsApp ou email</label><input id="businessContact" placeholder="Ex: (11) 99999-9999"></div>
+    <button class="primary" onclick="login()">Entrar no aplicativo</button>
+    <button class="secondary" onclick="guest()">Entrar como visitante</button>
+    <div class="login-note">Acesso simples para uso da ferramenta. Não é um login com senha.</div>
+  </div>
+</section>
+
+<section id="app" class="view app hidden">
+  <div class="shell">
     <div class="copy">
-      <div class="badge">🚀 Arte Fácil Pro Delivery</div>
-      <div class="logo"><div class="mark">⚡</div><div class="brand"><strong>Arte Fácil <span style="color:#ff7a00">Pro</span></strong><small>DELIVERY</small></div></div>
+      <div class="badge">Arte Fácil Pro Delivery</div>
+      <div class="brand logo-line"><div class="logo">AF</div><div><strong>Central de ferramentas</strong><small>Delivery</small></div></div>
       <h1>Ferramentas modernas para <span>vender melhor</span>.</h1>
-      <p class="lead">Uma central com artes prontas, precificação inteligente e briefing de logomarca profissional para delivery, tudo em um visual simples, rápido e premium.</p>
-      <div class="benefits">
-        <div class="benefit"><b>Mais agilidade</b><small>Ferramentas préticas para ganhar tempo.</small></div>
-        <div class="benefit"><b>Mais lucro</b><small>Precificação clara para vender melhor.</small></div>
-        <div class="benefit"><b>Mais presença</b><small>Artes e logos com aparência profissional.</small></div>
+      <p>Uma experiência pensada para celular, com acesso rápido às ferramentas mais importantes para negócios de delivery.</p>
+      <div class="stats">
+        <div class="stat"><b>Artes</b><small>Catálogo pronto para personalizar.</small></div>
+        <div class="stat"><b>Preço</b><small>Cálculos claros para vender.</small></div>
+        <div class="stat"><b>Marca</b><small>Briefing profissional de logomarca.</small></div>
       </div>
+      <button class="logout" onclick="logout()">Sair e voltar ao login</button>
     </div>
 
     <div class="phone-wrap">
       <div class="glow"></div>
       <div class="phone">
         <div class="screen">
-          <div class="status"><span>9:41</span><span>▮▮▮  Wi‑Fi  ▰</span></div>
+          <div class="status"><span>9:41</span><span>●●●  Wi‑Fi  ▰</span></div>
           <div class="app-head">
-            <div class="mini-logo"><div class="mini-icon">⚡</div><div><b>Arte Fácil <span style="color:#ff9a00">Pro</span></b><small>DELIVERY</small></div></div>
-            <div class="bell">🔓</div>
+            <div class="profile"><div class="avatar">AF</div><div><b>Arte Fácil Pro</b><small>DELIVERY</small></div></div>
+            <button class="icon-btn" onclick="logout()" title="Sair">•••</button>
           </div>
-          <div class="hello">Olá, empreendedor! 👋</div>
+          <div class="hello" id="hello">Olá, empreendedor!</div>
           <div class="desc">Escolha uma ferramenta para impulsionar seu delivery hoje.</div>
+
           <div class="tool-list">
             <a class="tool-card hot" href="catalogo/">
-              <div class="tool-ico">🖿️</div><div><b>Biblioteca de Artes</b><span>Artes prontas para promoções, cardápio e redes sociais.</span></div><div class="arrow">₻</div>
+              <div class="tool-icon">A</div><div><b>Biblioteca de Artes</b><span>Artes prontas para promoções, cardápio e redes sociais.</span></div><div class="arrow">›</div>
             </a>
             <a class="tool-card hot" href="precificacao/">
-              <div class="tool-ico">🧎</div><div><b>Precificação Automática</b><span>Calcule preço ideal, margem, taxa do app e venda direta.</span></div><div class="arrow">�</div>
+              <div class="tool-icon">R$</div><div><b>Precificação Automática</b><span>Calcule preço ideal, margem, taxa do app e venda direta.</span></div><div class="arrow">›</div>
             </a>
-            <a class="tool-card hot" href="logomarca/">
-              <div class="tool-ico">🏷️</div><div><b>Logomarca Profissional</b><span>Crie um briefing completo para gerar uma marca atrativa.</span></div><div class="arrow">�</div>
+            <a class="tool-card green" href="logomarca/">
+              <div class="tool-icon">L</div><div><b>Logomarca Profissional</b><span>Crie um briefing completo para gerar uma marca atrativa.</span></div><div class="arrow">›</div>
             </a>
-            <div class="tool-card soon">
-              <span class="soon-pill">Em breve</span>
-              <div class="tool-ico">♡</div><div><b>Mais ferramentas</b><span>Novas soluções exclusivas estão chegando.</span></div><div class="arrow">�</div>
-            </div>
+            <a class="tool-card" href="combos/">
+              <div class="tool-icon">C</div><div><b>Combos Inteligentes</b><span>Monte combos com preço, desconto e lucro estimado.</span></div><div class="arrow">›</div>
+            </a>
           </div>
-          <div class="nav"><div><i>⌂</i>Inõcio</div><div><i>▣</i>Projetos</div><div><i>♡߸�</i>Favoritos</div><div><i>♑</i>Conta</div></div>
+
+          <div class="bottom-nav">
+            <a href="catalogo/"><i>⌂</i>Artes</a>
+            <a href="precificacao/"><i>▦</i>Preço</a>
+            <a href="logomarca/"><i>◇</i>Logo</a>
+            <a href="combos/"><i>＋</i>Combos</a>
+          </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
 
   <section class="modules">
-    <div class="module"><div class="micon">🚀</div><div><b>Mais agilidade</b><p>Centralize as ferramentas mais usadas em uma tela fácil.</p></div></div>
-    <div class="module"><div class="micon">📈</div><div><b>Mais lucro</b><p>Tenha uma base mais segura para vender seus produtos.</p></div></div>
-    <div class="module"><div class="micon">🎨</div><div><b>Mais profissionalismo</b><p>Artes e logos para fortalecer a presença do delivery.</p></div></div>
-    <div class="module"><div class="micon">🦡️</div><div><b>Tudo em um lugar</b><p>Uma central preparada para receber novas ferramentas.</p></div></div>
+    <div class="module"><div class="micon">›</div><div><b>Mais agilidade</b><p>Ferramentas em cards simples, com menos etapas.</p></div></div>
+    <div class="module"><div class="micon">R$</div><div><b>Mais lucro</b><p>Base mais segura para vender produtos e combos.</p></div></div>
+    <div class="module"><div class="micon">AF</div><div><b>Mais profissionalismo</b><p>Artes e logos para fortalecer a presença do delivery.</p></div></div>
+    <div class="module"><div class="micon">+</div><div><b>Pronto para crescer</b><p>Estrutura preparada para receber novas ferramentas.</p></div></div>
   </section>
+  <div class="footer">Arte Fácil Pro Delivery<br>@artefacilpro</div>
+</section>
 
-  <div class="footer">🎨 Arte Fácil Pro Delivery<br>@artefacilpro</div>
-</div>
+<script>
+function showApp(){
+  document.getElementById('login').classList.add('hidden');
+  document.getElementById('app').classList.remove('hidden');
+  const name = localStorage.getItem('afp_name') || 'empreendedor';
+  document.getElementById('hello').textContent = 'Olá, ' + name + '!';
+}
+function showLogin(){
+  document.getElementById('app').classList.add('hidden');
+  document.getElementById('login').classList.remove('hidden');
+}
+function login(){
+  const name = document.getElementById('businessName').value.trim() || 'empreendedor';
+  const contact = document.getElementById('businessContact').value.trim();
+  localStorage.setItem('afp_name', name);
+  localStorage.setItem('afp_contact', contact);
+  localStorage.setItem('afp_logged', '1');
+  showApp();
+}
+function guest(){
+  localStorage.setItem('afp_name','visitante');
+  localStorage.setItem('afp_logged','1');
+  showApp();
+}
+function logout(){
+  localStorage.removeItem('afp_logged');
+  showLogin();
+}
+if(localStorage.getItem('afp_logged') === '1'){ showApp(); } else { showLogin(); }
+</script>
 </body>
 </html>
