@@ -1,36 +1,12 @@
-<!DOCTYPE html><html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0"><title>Arte #112 — Marmitex de Verdade</title><link rel="stylesheet" href="../style-art.css"></head><body><div id="loader"><div class="loader-card"><div class="loader-dot"></div></div></div><div class="topbar"><a class="btn-back" href="../">← Voltar</a><div class="badge">⭐ ARTE FÁCIL PRO DELIVERY</div></div><div class="content"><h1>Arte #112 — Marmitex de Verdade</h1><p class="sub">Preencha somente o essencial. O restante do visual será mantido como na referência.</p><img class="arte" src="preview.jpg" alt="Arte 112"><button class="btn-download" onclick="baixarImagem()">⬇️ Baixar imagem de referência</button><div class="divider"></div><div class="section-title">📐 Formato da arte</div><div class="formato-row"><div class="formato-btn active" id="fmt-feed" onclick="selecionarFormato('feed')"><strong>Feed</strong>1080 × 1440</div><div class="formato-btn" id="fmt-story" onclick="selecionarFormato('story')"><strong>Story</strong>1080 × 1920</div></div><div class="divider"></div><div class="section-title">📝 Dados principais</div><label>Nome do negócio</label><input id="marca" placeholder="ex: Sabor & Brasa Restaurante"><label>Título principal</label><input id="titulo" placeholder="ex: Marmitex de Verdade"><label>Frase ou chamada</label><input id="frase" placeholder="ex: Feita com carinho, do jeitinho que você gosta"><label>Preço</label><input id="preco" placeholder="ex: R$ 19,90"><label>Tamanho ou observação do preço</label><input id="tamanho" placeholder="ex: pequena"><label>WhatsApp</label><input id="whats" placeholder="ex: (21) 99555-1212"><label>Funcionamento</label><input id="funcionamento" placeholder="ex: Segunda a sábado, das 11h às 14h30"><label>Endereço</label><textarea id="endereco" placeholder="ex: Rua das Acácias, 456 - Bairro Jardim Novo - Rio de Janeiro/RJ"></textarea><label>Logomarca</label><select id="logo"><option>Vou enviar minha logomarca</option><option>Quero que você crie uma logomarca</option></select><label>Imagem do produto</label><select id="imagemProduto"><option>Vou enviar a foto do produto</option><option>Quero que gere uma imagem realista</option></select><label>Itens da marmitex</label><textarea id="itens" placeholder="ex: arroz, feijão, bife, frango assado, macarrão, salada e tomate"></textarea><label>Informações do rodapé</label><textarea id="rodape" placeholder="ex: comida boa, preço justo e atendimento de verdade"></textarea><label>Outras informações</label><textarea id="info" placeholder="Algum detalhe extra"></textarea><button class="btn-gerar" onclick="confirmar()">⚡ GERAR PROMPT</button><div class="result-box" id="confirmacao"><div class="section-title">✅ Confirme</div><div class="confirm-box" id="resumo"></div><div class="btn-row"><button class="btn-voltar2" onclick="voltar()">Editar</button><button class="btn-confirmar" onclick="gerar()">Confirmar</button></div></div><div class="result-box" id="result"><div class="section-title">📋 Prompt personalizado</div><textarea class="prompt-area" id="prompt-output" readonly></textarea><button class="btn-copiar" id="btn-copy" onclick="copiar()">📋 Copiar Prompt</button><button class="btn-download" onclick="baixarImagem()" style="margin-top:10px;">⬇️ Baixar imagem de referência</button><div class="section-title" style="margin-top:20px;">🔗 Abra o gerador e cole o prompt:</div><div class="links"><a class="link-btn" target="_blank" href="https://chat.openai.com/">🤖 ChatGPT</a><a class="link-btn" target="_blank" href="https://gemini.google.com/">🧠 Gemini</a></div></div><div class="step-by-step"><h2>Como usar</h2><ol><li>Preencha os dados principais.</li><li>Gere o prompt.</li><li>Copie o prompt e baixe a imagem.</li><li>Abra ChatGPT ou Gemini.</li><li>Envie imagem + prompt.</li></ol></div><div class="footer">🎨 Arte Fácil Pro Delivery<br><a href="https://instagram.com/artefacilpro" target="_blank">@artefacilpro</a></div></div><script>
-let formatoAtivo='feed';window.addEventListener('load',()=>setTimeout(()=>{let l=document.getElementById('loader');if(l)l.classList.add('hide')},450));
-function selecionarFormato(f){formatoAtivo=f;document.querySelectorAll('.formato-btn').forEach(el=>el.classList.remove('active'));document.getElementById('fmt-'+f).classList.add('active')}
-function baixarImagem(){let a=document.createElement('a');a.href='preview.jpg';a.download='112-referencia.jpg';a.click()}
-function val(id){return document.getElementById(id).value.trim()||'não informado'}
-function confirmar(){let d={marca:val('marca'),titulo:val('titulo'),frase:val('frase'),preco:val('preco'),whats:val('whats'),funcionamento:val('funcionamento'),endereco:val('endereco'),logo:val('logo'),imagemProduto:val('imagemProduto')};document.getElementById('resumo').innerHTML='<span>Negócio:</span> '+d.marca+'<br><span>Título:</span> '+d.titulo+'<br><span>Chamada:</span> '+d.frase+'<br><span>Preço:</span> '+d.preco+'<br><span>WhatsApp:</span> '+d.whats+'<br><span>Funcionamento:</span> '+d.funcionamento+'<br><span>Endereço:</span> '+d.endereco+'<br><span>Logomarca:</span> '+d.logo+'<br><span>Imagem do produto:</span> '+d.imagemProduto;document.getElementById('confirmacao').style.display='block'}
-function voltar(){document.getElementById('confirmacao').style.display='none'}
-function gerar(){let d={marca:val('marca'),titulo:val('titulo'),frase:val('frase'),preco:val('preco'),tamanho:val('tamanho'),whats:val('whats'),funcionamento:val('funcionamento'),endereco:val('endereco'),logo:val('logo'),imagemProduto:val('imagemProduto'),itens:val('itens'),rodape:val('rodape'),info:val('info')};let dim=formatoAtivo==='feed'?'1080x1440':'1080x1920';let prompt=`Use a imagem de referência como base principal.
-
-Crie uma arte profissional para marmitex/restaurante no formato ${dim}, mantendo o mesmo estilo da referência: fundo escuro premium com textura marrom/preta, fumaça suave subindo ao fundo, visual rústico e apetitoso de comida caseira, logomarca no topo, título grande central em letras brancas e amarelas com efeito artesanal, faixa amarela de destaque abaixo do título, selo circular no canto superior direito, marmitex grande e realista ocupando a parte central/inferior da arte, selo de preço circular preto com borda amarela no lado direito, botão grande de WhatsApp em amarelo na parte inferior central, horário no rodapé esquerdo, endereço no rodapé direito e frase final no rodapé com estrelas.
-
-Troque apenas as informações abaixo:
-
-Nome do negócio: ${d.marca}
-Título principal: ${d.titulo}
-Frase/chamada: ${d.frase}
-Preço: ${d.preco}
-Tamanho/observação do preço: ${d.tamanho}
-WhatsApp: ${d.whats}
-Funcionamento: ${d.funcionamento}
-Endereço: ${d.endereco}
-Logomarca: ${d.logo}. Se o cliente escolheu enviar a logomarca, solicite/aguarde o arquivo e use a logomarca enviada sem inventar outra. Se escolheu criar uma logomarca, crie uma logomarca simples, profissional e coerente com o nome da marca.
-Imagem do produto: ${d.imagemProduto}. Se o cliente escolheu enviar a foto do produto, solicite/aguarde a foto e use essa foto como referência principal do produto. Se escolheu gerar uma imagem realista, crie uma marmitex realista, apetitosa e coerente com os itens informados.
-Itens da marmitex: ${d.itens}
-Informações do rodapé: ${d.rodape}
-Extras: ${d.info}
-
-Antes de gerar a imagem, revise os dados enviados pelo cliente. Corrija erros de português, ajuste acentuação, organize o endereço se houver e formate telefone/WhatsApp separando DDD e número.
-
-Envie primeiro uma mensagem curta confirmando apenas os dados personalizados, sem mostrar este prompt completo. Peça permissão para gerar a imagem. Caso o cliente peça alteração, ajuste os dados e confirme novamente antes de gerar.
-
-Após gerar a arte, pergunte se o cliente ficou satisfeito, se deseja ajustar algo ou gerar novamente. Se o cliente responder que gostou, aprovou ou ficou satisfeito, ofereça uma descrição para postagem nas redes sociais e crie uma legenda baseada na arte final.
-
-Manter visual profissional, moderno, caseiro, apetitoso, premium e vendedor. Priorizar leitura clara do título, preço, produto, WhatsApp, funcionamento e endereço. Não adicionar informações que não foram fornecidas.`;document.getElementById('prompt-output').value=prompt;document.getElementById('result').style.display='block';document.getElementById('confirmacao').style.display='none'}
-function copiar(){let t=document.getElementById('prompt-output');t.select();document.execCommand('copy');let b=document.getElementById('btn-copy');b.innerText='✅ Copiado';setTimeout(()=>{b.innerText='📋 Copiar Prompt'},1500)}
-</script></body></html>
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arte #112 — Restaurante</title>
+<link rel="stylesheet" href="../style-art.css">
+</head>
+<body data-art="112" data-niche="Restaurante" data-preview="preview.jpg" data-download="112-referencia.jpg">
+<script src="../art-page.js"></script>
+</body>
+</html>
