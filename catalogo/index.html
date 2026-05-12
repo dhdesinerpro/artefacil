@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Catálogo de Artes</title>
+<link rel="stylesheet" href="../style.css">
+<style>
+.top-home{display:inline-block;margin:14px 14px 0;color:#f5b63e;text-decoration:none;font-weight:800}
+.header h1{margin-top:8px}
+</style>
+</head>
+<body>
+<a class="top-home" href="../">← Voltar para ferramentas</a>
+<header class="header">
+  <div class="badge">ARTE FÁCIL PRO DELIVERY</div>
+  <h1>Catálogo de Artes</h1>
+  <p>Escolha um modelo e gere com seus dados em segundos.</p>
+</header>
+<section class="niche-box">
+  <div class="niche-label">Filtrar por nicho</div>
+  <div class="niche-select-wrap">
+    <button class="niche-trigger" id="nicheTrigger" type="button" onclick="toggleNicheMenu()">Todos</button>
+    <div class="niche-menu" id="nicheMenu">
+      <button class="niche-option active" onclick="selectCat('Todos','Todos',this)">Todos</button>
+      <button class="niche-option" onclick="selectCat('Açaíterias','Açaíterias',this)">Açaíterias</button>
+      <button class="niche-option" onclick="selectCat('Restaurantes','Restaurantes',this)">Restaurantes</button>
+      <button class="niche-option" onclick="selectCat('Sushi','Sushi',this)">Sushi</button>
+      <button class="niche-option" onclick="selectCat('Hamburguerias','Hamburguerias',this)">Hamburguerias</button>
+      <button class="niche-option" onclick="selectCat('Pizzaria','Pizzaria',this)">Pizzaria</button>
+      <button class="niche-option" onclick="selectCat('Assados','Assados',this)">Assados</button>
+      <button class="niche-option" onclick="selectCat('Pastelarias','Pastelarias',this)">Pastelarias</button>
+    </div>
+  </div>
+</section>
+<div class="counter" id="counter">Carregando artes...</div>
+<main class="grid" id="grid">
+<div class="card" data-cat="Açaíterias"><img src="../arte116/preview.jpg" alt="Arte 116"><div class="info"><b>Arte #116</b><span>Açaíterias</span><a href="../arte116/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Sushi"><img src="../arte115/preview.jpg" alt="Arte 115"><div class="info"><b>Arte #115</b><span>Sushi</span><a href="../arte115/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Pizzaria"><img src="../arte114/preview.jpg" alt="Arte 114"><div class="info"><b>Arte #114</b><span>Pizzaria</span><a href="../arte114/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Restaurantes"><img src="../arte113/preview.jpg" alt="Arte 113"><div class="info"><b>Arte #113</b><span>Restaurantes</span><a href="../arte113/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Restaurantes"><img src="../arte112/preview.jpg" alt="Arte 112"><div class="info"><b>Arte #112</b><span>Restaurantes</span><a href="../arte112/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Açaíterias"><img src="../arte111/preview.jpg" alt="Arte 111"><div class="info"><b>Arte #111</b><span>Açaíterias</span><a href="../arte111/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Açaíterias"><img src="../arte110/preview.jpg" alt="Arte 110"><div class="info"><b>Arte #110</b><span>Açaíterias</span><a href="../arte110/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Restaurantes"><img src="../arte109/preview.jpg" alt="Arte 109"><div class="info"><b>Arte #109</b><span>Restaurantes</span><a href="../arte109/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Açaíterias"><img src="../arte108/preview.jpg" alt="Arte 108"><div class="info"><b>Arte #108</b><span>Açaíterias</span><a href="../arte108/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Hamburguerias"><img src="../arte107/preview.jpg" alt="Arte 107"><div class="info"><b>Arte #107</b><span>Hamburguerias</span><a href="../arte107/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Hamburguerias"><img src="../arte106/preview.jpg" alt="Arte 106"><div class="info"><b>Arte #106</b><span>Hamburguerias</span><a href="../arte106/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Hamburguerias"><img src="../arte105/preview.jpg" alt="Arte 105"><div class="info"><b>Arte #105</b><span>Hamburguerias</span><a href="../arte105/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Hamburguerias"><img src="../arte104/preview.jpg" alt="Arte 104"><div class="info"><b>Arte #104</b><span>Hamburguerias</span><a href="../arte104/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Assados"><img src="../arte103/preview.jpg" alt="Arte 103"><div class="info"><b>Arte #103</b><span>Assados</span><a href="../arte103/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Hamburguerias"><img src="../arte102/preview.jpeg" alt="Arte 102"><div class="info"><b>Arte #102</b><span>Hamburguerias</span><a href="../arte102/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Pastelarias"><img src="../arte101/preview.jpg" alt="Arte 101"><div class="info"><b>Arte #101</b><span>Pastelarias</span><a href="../arte101/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Hamburguerias"><img src="../arte100/preview.jpg" alt="Arte 100"><div class="info"><b>Arte #100</b><span>Hamburguerias</span><a href="../arte100/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Hamburguerias"><img src="../arte099/preview.jpg" alt="Arte 099"><div class="info"><b>Arte #099</b><span>Hamburguerias</span><a href="../arte099/">Gerar com meus dados</a></div></div>
+<div class="card" data-cat="Hamburguerias"><img src="../arte098/preview.jpg" alt="Arte 098"><div class="info"><b>Arte #098</b><span>Hamburguerias</span><a href="../arte098/">Gerar com meus dados</a></div></div>
+</main>
+<div class="empty" id="empty">Nenhuma arte nesse nicho ainda.</div>
+<footer class="footer">🎨 Arte Fácil Pro Delivery<br><a href="https://instagram.com/artefacilpro" target="_blank">@artefacilpro</a></footer>
+<script>
+let current='Todos';
+function cards(){return Array.from(document.querySelectorAll('.card'))}
+function render(){let total=0;cards().forEach(c=>{let show=current==='Todos'||c.dataset.cat===current;c.classList.toggle('hidden',!show);if(show)total++;});document.getElementById('counter').textContent=total+(total===1?' arte disponível':' artes disponíveis');document.getElementById('empty').style.display=total?'none':'block';}
+function toggleNicheMenu(){document.getElementById('nicheMenu').classList.toggle('open');document.getElementById('nicheTrigger').classList.toggle('open')}
+function closeMenu(){document.getElementById('nicheMenu').classList.remove('open');document.getElementById('nicheTrigger').classList.remove('open')}
+function selectCat(cat,label,el){current=cat;document.getElementById('nicheTrigger').textContent=label;document.querySelectorAll('.niche-option').forEach(o=>o.classList.remove('active'));el.classList.add('active');closeMenu();render();}
+document.addEventListener('click',e=>{let w=document.querySelector('.niche-select-wrap');if(w&&!w.contains(e.target))closeMenu();});
+render();
+</script>
+</body>
+</html>
