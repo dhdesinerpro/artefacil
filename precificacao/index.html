@@ -1,1 +1,51 @@
-<!doctype html><html lang=pt-BR><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><title>Precificação</title><style>body{font-family:Arial;background:#080812;color:white;margin:0}main{max-width:760px;margin:auto;padding:24px}.box{background:#151528;border:1px solid #333;border-radius:20px;padding:18px;margin:14px 0}a{color:white}.grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}input,select,button{width:100%;padding:13px;border-radius:12px;border:1px solid #333;background:#20203a;color:white;font-weight:700}button{background:linear-gradient(135deg,#ff6422,#ff3d45);border:0;margin-top:12px}.r{display:flex;justify-content:space-between;border-top:1px solid #333;padding:12px 0}.price{font-size:22px;font-weight:900;color:#ffb63e}@media(max-width:700px){.grid{grid-template-columns:1fr}}</style><main><a href=../>← Voltar</a><h1>Precificação automática</h1><p>Calcule preço de lanches e produtos sem IA.</p><div class=box><div class=grid><label>Item<input id=nome value="Combo especial"></label><label>Ingredientes/produto<input id=ing type=number value=7 step=.01></label><label>Embalagem<input id=emb type=number value=2 step=.01></label><label>Mão de obra<input id=mao type=number value=1.5 step=.01></label><label>Perdas/extras<input id=per type=number value=.5 step=.01></label><label>Taxa app %<input id=tax type=number value=12 step=.1></label><label>Entrega subsidiada<input id=ent type=number value=0 step=.01></label><label>Margem ideal %<input id=mar type=number value=120></label></div><button onclick=calc()>Calcular preço ideal</button></div><div class=box><div class=r><b>Custo total</b><span id=custo></span></div><div class=r><b>Econômico</b><span id=eco class=price></span></div><div class=r><b>Ideal recomendado</b><span id=ideal class=price></span></div><div class=r><b>Premium</b><span id=prem class=price></span></div><div class=r><b>Venda direta</b><span id=dir class=price></span></div><button onclick=copiar()>Copiar resumo</button></div></main><script>function n(i){return parseFloat(document.getElementById(i).value)||0}function br(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}function ar(v){return Math.floor(v)+.9+(v>Math.floor(v)+.9?1:0)}function px(c,m,t){let f=1-t/100;return f<=0?0:(c+c*m/100)/f}function calc(){let c=n('ing')+n('emb')+n('mao')+n('per')+n('ent'),t=n('tax'),m=n('mar');custo.textContent=br(c);eco.textContent=br(ar(px(c,Math.max(20,m*.55),t)));ideal.textContent=br(ar(px(c,m,t)));prem.textContent=br(ar(px(c,m*1.55,t)));dir.textContent=br(ar(c+c*m/100))}function copiar(){navigator.clipboard.writeText('Precificação '+nome.value+'\nIdeal: '+ideal.textContent+'\nEconômico: '+eco.textContent+'\nPremium: '+prem.textContent+'\nDireta: '+dir.textContent)}calc()</script></html>
+<!doctype html>
+<html lang="pt-BR">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Precificação Automática</title>
+<style>
+:root{--bg:#08080f;--card:#151626;--line:rgba(255,255,255,.11);--txt:#fff;--mut:#a8a8b8;--gold:#f5b63e;--orange:#ff7a00}
+*{box-sizing:border-box;margin:0;padding:0}body{font-family:Arial,sans-serif;background:radial-gradient(circle at top,#241b35,#08080f 55%,#050507);color:var(--txt)}a{color:inherit;text-decoration:none}.wrap{width:min(1040px,94vw);margin:auto;padding:24px 0 42px}.top{display:flex;justify-content:space-between;align-items:center;margin-bottom:22px}.back,.badge{border:1px solid var(--line);background:rgba(255,255,255,.06);border-radius:999px;padding:10px 14px;font-weight:900}.badge{color:var(--gold)}.hero{text-align:center;padding:20px 0 24px}.hero h1{font-size:clamp(32px,6vw,58px);line-height:1;margin-bottom:12px}.hero p{color:var(--mut);line-height:1.55;max-width:680px;margin:auto}.grid{display:grid;grid-template-columns:.95fr 1.05fr;gap:18px;background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:30px;padding:18px}.box{background:rgba(15,15,25,.9);border:1px solid var(--line);border-radius:24px;padding:20px}.box h2{font-size:24px;margin-bottom:8px}.sub{color:var(--mut);line-height:1.45;font-size:14px;margin-bottom:18px}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px}.full{grid-column:1/-1}label{display:block;color:#bdbdd4;font-size:11px;font-weight:900;letter-spacing:.8px;text-transform:uppercase;margin-bottom:6px}input{width:100%;background:#20203a;color:white;border:1px solid var(--line);border-radius:15px;padding:13px;font:inherit;font-weight:800;outline:none}button{width:100%;border:0;border-radius:16px;padding:15px;background:linear-gradient(135deg,var(--orange),#ff3d45);color:white;font-weight:950;cursor:pointer;margin-top:14px}
+.results{display:grid;gap:12px}.result{position:relative;background:linear-gradient(145deg,rgba(255,255,255,.08),rgba(255,255,255,.03));border:1px solid var(--line);border-radius:20px;padding:15px 16px;display:flex;justify-content:space-between;align-items:center;gap:12px}.result h3{font-size:14px;margin-bottom:4px}.result p{font-size:12px;color:var(--mut);line-height:1.3}.value{font-size:18px;font-weight:950;color:#ddd}.small .value{font-size:16px;color:#aaa}.mid .value{font-size:20px;color:#ddd}.recommended{border-color:rgba(245,182,62,.65);background:linear-gradient(145deg,rgba(245,182,62,.18),rgba(255,255,255,.04));padding:22px 16px}.recommended .value{font-size:42px;color:var(--gold);letter-spacing:-1px}.tag{position:absolute;right:14px;top:-10px;background:var(--gold);color:#111;border-radius:999px;padding:5px 9px;font-size:10px;font-weight:950;letter-spacing:.6px}.summary{background:#0d0d18;border:1px solid var(--line);border-radius:20px;padding:15px;margin-top:12px;color:#ddd;line-height:1.55;font-size:14px;white-space:pre-wrap}.copy{background:rgba(255,255,255,.08);border:1px solid var(--line);margin-top:10px}.ok{display:none;margin-top:10px;background:rgba(16,163,127,.16);border:1px solid rgba(16,163,127,.35);border-radius:12px;padding:10px;color:#b8ffde;font-size:13px;font-weight:800}
+@media(max-width:840px){.grid{grid-template-columns:1fr}.hero{text-align:left}.hero p{margin:0}.form{grid-template-columns:1fr}.recommended .value{font-size:36px}.top{align-items:flex-start;gap:10px;flex-direction:column}}
+</style></head>
+<body><div class="wrap">
+ <div class="top"><a class="back" href="../">← Voltar</a><div class="badge">Precificação Automática</div></div>
+ <section class="hero"><h1>Calcule o preço ideal com clareza.</h1><p>Informe custos e margem. O valor recomendado aparece em destaque para facilitar a decisão.</p></section>
+ <section class="grid">
+  <div class="box"><h2>Dados do produto</h2><p class="sub">Preencha os principais custos e ajuste a margem ideal.</p>
+   <div class="form">
+    <div class="full"><label>Item</label><input id="nome" value="Combo especial"></div>
+    <div><label>Ingredientes/produto</label><input id="ing" type="number" value="7" step=".01"></div>
+    <div><label>Embalagem</label><input id="emb" type="number" value="2" step=".01"></div>
+    <div><label>Mão de obra</label><input id="mao" type="number" value="1.5" step=".01"></div>
+    <div><label>Perdas/extras</label><input id="per" type="number" value=".5" step=".01"></div>
+    <div><label>Taxa app %</label><input id="tax" type="number" value="12" step=".1"></div>
+    <div><label>Entrega subsidiada</label><input id="ent" type="number" value="0" step=".01"></div>
+    <div><label>Margem ideal %</label><input id="mar" type="number" value="120"></div>
+   </div><button onclick="calc()">Calcular preço ideal</button>
+  </div>
+  <div class="box"><h2>Resultado</h2><p class="sub">O recomendado fica maior e em amarelo. Os demais são referências auxiliares.</p>
+   <div class="results">
+    <div class="result small"><div><h3>Custo total</h3><p>Base de custo do produto</p></div><div class="value" id="custo"></div></div>
+    <div class="result small"><div><h3>Econômico</h3><p>Entrada mais competitiva</p></div><div class="value" id="eco"></div></div>
+    <div class="result recommended"><span class="tag">RECOMENDADO</span><div><h3>Preço ideal</h3><p>Melhor equilíbrio entre margem e taxa</p></div><div class="value" id="ideal"></div></div>
+    <div class="result mid"><div><h3>Premium</h3><p>Para maior margem percebida</p></div><div class="value" id="prem"></div></div>
+    <div class="result small"><div><h3>Venda direta</h3><p>Sem taxa de aplicativo</p></div><div class="value" id="dir"></div></div>
+   </div>
+   <div class="summary" id="resumo"></div><button class="copy" onclick="copiar()">Copiar resumo</button><div class="ok" id="ok">Resumo copiado.</div>
+  </div>
+ </section>
+</div>
+<script>
+function n(i){return parseFloat(document.getElementById(i).value)||0}
+function br(v){return v.toLocaleString('pt-BR',{style:'currency',currency:'BRL'})}
+function ar(v){return Math.floor(v)+.9+(v>Math.floor(v)+.9?1:0)}
+function px(c,m,t){let f=1-t/100;return f<=0?0:(c+c*m/100)/f}
+function calc(){let c=n('ing')+n('emb')+n('mao')+n('per')+n('ent'),t=n('tax'),m=n('mar');
+ let e=ar(px(c,Math.max(20,m*.55),t)),i=ar(px(c,m,t)),p=ar(px(c,m*1.55,t)),d=ar(c+c*m/100);
+ custo.textContent=br(c);eco.textContent=br(e);ideal.textContent=br(i);prem.textContent=br(p);dir.textContent=br(d);
+ resumo.textContent='Precificação: '+nome.value+'\nCusto total: '+br(c)+'\nPreço ideal recomendado: '+br(i)+'\nEconômico: '+br(e)+'\nPremium: '+br(p)+'\nVenda direta: '+br(d);
+}
+async function copiar(){try{await navigator.clipboard.writeText(resumo.textContent);ok.style.display='block'}catch(e){alert(resumo.textContent)}}
+calc()
+</script></body></html>
